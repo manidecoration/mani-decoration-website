@@ -1,895 +1,1641 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MANI DECORATION | Auto Accessories</title>
-
-  <meta name="description" content="MANI DECORATION - گاڑیوں کا سامان، سیٹ کور، میٹ، آٹو ایکسسریز، کار کیئر، کسٹم کام اور خصوصی ڈیلز۔">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, "Noto Sans", sans-serif;
-      background: #f4f4f4;
-      color: #171717;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* HEADER */
-    header {
-      background: #090909;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid #d71920;
-    }
-
-    .header-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: white;
-      text-shadow: 2px 2px 0 #d71920;
-      direction: ltr;
-    }
-
-    .menu-btn {
-      width: 44px;
-      height: 44px;
-      border: 1px solid #444;
-      background: #151515;
-      color: white;
-      border-radius: 10px;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    /* MENU */
-    .menu {
-      display: none;
-      background: #111;
-      color: white;
-      padding: 15px 4%;
-      border-top: 1px solid #333;
-    }
-
-    .menu.show {
-      display: block;
-    }
-
-    .menu a {
-      display: block;
-      padding: 11px 5px;
-      border-bottom: 1px solid #292929;
-    }
-
-    /* HERO */
-    .hero {
-      background:
-        radial-gradient(circle at top right, #3a0808, transparent 45%),
-        linear-gradient(135deg, #090909, #171717);
-      color: white;
-      padding: 30px 0 28px;
-    }
-
-    .hero-content {
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 900;
-      direction: ltr;
-      text-shadow: 3px 3px 0 #d71920;
-      margin-bottom: 5px;
-    }
-
-    .hero p {
-      color: #ddd;
-      font-size: 15px;
-    }
-
-    /* OFFER SLIDER */
-    .offer-wrap {
-      padding: 15px 0 5px;
-      background: #111;
-    }
-
-    .offer {
-      background: linear-gradient(135deg, #d71920, #8f0f14);
-      color: white;
-      border-radius: 16px;
-      padding: 22px 18px;
-      min-height: 145px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
-    }
-
-    .offer small {
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .offer h2 {
-      font-size: 23px;
-      margin: 3px 0;
-    }
-
-    .offer p {
-      font-size: 14px;
-      color: #fff;
-    }
-
-    .offer-btn {
-      display: inline-block;
-      background: white;
-      color: #111;
-      padding: 8px 18px;
-      border-radius: 8px;
-      margin: 10px auto 0;
-      font-weight: bold;
-    }
-
-    /* MOVING STRIP */
-    .ticker {
-      overflow: hidden;
-      background: #050505;
-      color: white;
-      white-space: nowrap;
-      padding: 8px 0;
-      border-top: 1px solid #333;
-      border-bottom: 1px solid #333;
-    }
-
-    .ticker-track {
-      display: inline-block;
-      padding-right: 100%;
-      animation: ticker 18s linear infinite;
-      direction: rtl;
-    }
-
-    @keyframes ticker {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(100%);
-      }
-    }
-
-    /* SECTION */
-    section {
-      padding: 25px 0;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      gap: 10px;
-    }
-
-    .section-title h2 {
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-    .section-title span {
-      color: #777;
-      font-size: 12px;
-      direction: ltr;
-    }
-
-    /* SEARCH */
-    .search-box {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .search-box input {
-      flex: 1;
-      height: 48px;
-      border: 1px solid #ccc;
-      border-radius: 11px;
-      padding: 0 15px;
-      font-size: 15px;
-      direction: ltr;
-      outline: none;
-      background: white;
-    }
-
-    .search-box input:focus {
-      border-color: #d71920;
-    }
-
-    .search-box button {
-      width: 50px;
-      border: none;
-      background: #d71920;
-      color: white;
-      border-radius: 11px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* VEHICLES */
-    .vehicle-scroll {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      direction: ltr;
-    }
-
-    .vehicle {
-      min-width: 125px;
-      background: white;
-      border-radius: 13px;
-      padding: 10px;
-      border: 1px solid #e1e1e1;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,.07);
-      cursor: pointer;
-    }
-
-    .vehicle-img {
-      height: 65px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, #222, #555);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 12px;
-      margin-bottom: 7px;
-      direction: ltr;
-    }
-
-    .vehicle strong {
-      font-size: 13px;
-      direction: ltr;
-      display: block;
-    }
-
-    .vehicle small {
-      color: #777;
-      font-size: 11px;
-    }
-
-    /* CATEGORIES */
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .category {
-      background: white;
-      border-radius: 13px;
-      padding: 15px 7px;
-      text-align: center;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 4px 12px rgba(0,0,0,.06);
-    }
-
-    .category-icon {
-      font-size: 25px;
-      margin-bottom: 5px;
-    }
-
-    .category strong {
-      font-size: 13px;
-      display: block;
-    }
-
-    .category small {
-      font-size: 9px;
-      color: #777;
-      direction: ltr;
-      display: block;
-    }
-
-    /* PRODUCTS */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .product {
-      background: white;
-      border-radius: 13px;
-      overflow: hidden;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 5px 14px rgba(0,0,0,.07);
-    }
-
-    .product-img {
-      height: 145px;
-      background: linear-gradient(135deg, #222, #777);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 13px;
-      text-align: center;
-      direction: ltr;
-    }
-
-    .product-info {
-      padding: 10px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #111;
-      color: white;
-      font-size: 9px;
-      padding: 3px 7px;
-      border-radius: 5px;
-      margin-bottom: 5px;
-    }
-
-    .product h3 {
-      font-size: 14px;
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-
-    .price {
-      font-size: 17px;
-      font-weight: 900;
-      color: #d71920;
-      direction: ltr;
-      text-align: left;
-      margin: 4px 0;
-    }
-
-    .order-btn {
-      display: block;
-      text-align: center;
-      background: #111;
-      color: white;
-      padding: 8px 5px;
-      border-radius: 8px;
-      font-size: 12px;
-      margin-top: 7px;
-    }
-
-    /* DEALS */
-    .deal-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .deal {
-      background: #111;
-      color: white;
-      border-radius: 15px;
-      padding: 18px;
-      border-right: 4px solid #d71920;
-    }
-
-    .deal h3 {
-      font-size: 18px;
-    }
-
-    .deal p {
-      color: #ccc;
-      font-size: 13px;
-    }
-
-    .deal-price {
-      color: #ff4a4a;
-      font-size: 21px;
-      font-weight: 900;
-      direction: ltr;
-      margin-top: 5px;
-    }
-
-    /* BUILD DEAL */
-    .build {
-      background: linear-gradient(135deg, #1a1a1a, #080808);
-      color: white;
-      border-radius: 17px;
-      padding: 23px 18px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,.2);
-    }
-
-    .build h2 {
-      font-size: 23px;
-    }
-
-    .build p {
-      color: #ccc;
-      font-size: 13px;
-      margin: 7px 0 14px;
-    }
-
-    .build-btn {
-      display: inline-block;
-      background: #d71920;
-      color: white;
-      padding: 10px 22px;
-      border-radius: 9px;
-      font-weight: bold;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      bottom: 17px;
-      left: 17px;
-      z-index: 999;
-      background: #111;
-      color: white;
-      border: 2px solid #d71920;
-      padding: 11px 15px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 6px 20px rgba(0,0,0,.3);
-    }
-
-    /* FOOTER */
-    footer {
-      background: #080808;
-      color: white;
-      padding: 28px 0 90px;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    footer h3 {
-      font-size: 20px;
-      direction: ltr;
-    }
-
-    footer p {
-      color: #aaa;
-      font-size: 12px;
-      margin-top: 5px;
-    }
-
-    /* TABLET / DESKTOP */
-    @media (min-width: 700px) {
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .deal-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .product-img {
-        height: 175px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MANI DECORATION | Auto Accessories</title>
+
+<meta name="description" content="MANI DECORATION - گاڑیوں کا سامان، سیٹ کور، میٹ، آٹو ایکسسریز، کار کیئر، کسٹم کام اور خصوصی ڈیلز۔">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,"Noto Sans",sans-serif;
+  background:#f4f4f4;
+  color:#171717;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input{
+  font-family:inherit;
+}
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  background:#090909;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:2px solid #d71920;
+}
+
+.header-inner{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* MD + BRAND */
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  direction:ltr;
+}
+
+.brand-icon{
+  width:38px;
+  height:38px;
+  border:2px solid #d71920;
+  border-radius:10px;
+  background:#111;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:-1px;
+  box-shadow:0 3px 10px rgba(215,25,32,.25);
+}
+
+.brand-name{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.7px;
+  color:white;
+  line-height:1;
+}
+
+/* MENU BUTTON */
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:1px solid #444;
+  background:#151515;
+  color:white;
+  border-radius:10px;
+  font-size:22px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.menu-btn:active{
+  transform:scale(.95);
+}
+
+/* MENU */
+
+.menu{
+  display:none;
+  background:#111;
+  color:white;
+  padding:15px 4%;
+  border-top:1px solid #333;
+}
+
+.menu.show{
+  display:block;
+}
+
+.menu a{
+  display:block;
+  padding:11px 5px;
+  border-bottom:1px solid #292929;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  background:
+    radial-gradient(circle at top right,#3a0808,transparent 45%),
+    linear-gradient(135deg,#090909,#171717);
+  color:white;
+  padding:30px 0 28px;
+}
+
+.hero-content{
+  text-align:center;
+}
+
+.hero h1{
+  font-size:32px;
+  font-weight:900;
+  direction:ltr;
+  text-shadow:3px 3px 0 #d71920;
+  margin-bottom:5px;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:15px;
+}
+
+/* ================= OFFER SLIDER ================= */
+
+.offer-wrap{
+  padding:15px 0 5px;
+  background:#111;
+}
+
+.offer{
+  background:linear-gradient(135deg,#d71920,#8f0f14);
+  color:white;
+  border-radius:16px;
+  padding:22px 18px;
+  min-height:145px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  transition:opacity .35s ease,transform .35s ease;
+}
+
+.offer.fade{
+  opacity:.25;
+  transform:scale(.98);
+}
+
+.offer small{
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.offer h2{
+  font-size:23px;
+  margin:3px 0;
+}
+
+.offer p{
+  font-size:14px;
+  color:#fff;
+}
+
+.offer-btn{
+  display:inline-block;
+  background:white;
+  color:#111;
+  padding:8px 18px;
+  border-radius:8px;
+  margin:10px auto 0;
+  font-weight:bold;
+}
+
+/* ================= MOVING STRIP ================= */
+
+.ticker{
+  overflow:hidden;
+  background:#050505;
+  color:white;
+  white-space:nowrap;
+  padding:8px 0;
+  border-top:1px solid #333;
+  border-bottom:1px solid #333;
+}
+
+.ticker-track{
+  display:inline-block;
+  padding-right:100%;
+  animation:ticker 18s linear infinite;
+  direction:rtl;
+}
+
+@keyframes ticker{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(100%);
+  }
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:25px 0;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+  gap:10px;
+}
+
+.section-title h2{
+  font-size:22px;
+  font-weight:900;
+}
+
+.section-title span{
+  color:#777;
+  font-size:12px;
+  direction:ltr;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.search-box input{
+  flex:1;
+  height:48px;
+  border:1px solid #ccc;
+  border-radius:11px;
+  padding:0 15px;
+  font-size:15px;
+  direction:ltr;
+  outline:none;
+  background:white;
+}
+
+.search-box input:focus{
+  border-color:#d71920;
+}
+
+.search-box button{
+  width:50px;
+  border:none;
+  background:#d71920;
+  color:white;
+  border-radius:11px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* ================= VEHICLES ================= */
+
+.vehicle-scroll{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:8px;
+  direction:ltr;
+  scrollbar-width:thin;
+}
+
+.vehicle{
+  min-width:125px;
+  background:white;
+  border-radius:13px;
+  padding:10px;
+  border:1px solid #e1e1e1;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.vehicle:active{
+  transform:scale(.97);
+}
+
+.vehicle-img{
+  height:65px;
+  border-radius:9px;
+  background:linear-gradient(135deg,#222,#555);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:12px;
+  margin-bottom:7px;
+  direction:ltr;
+}
+
+.vehicle strong{
+  font-size:13px;
+  direction:ltr;
+  display:block;
+}
+
+.vehicle small{
+  color:#777;
+  font-size:11px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.category{
+  background:white;
+  border-radius:13px;
+  padding:15px 7px;
+  text-align:center;
+  border:1px solid #e2e2e2;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  transition:.2s;
+}
+
+.category:active{
+  transform:scale(.97);
+}
+
+.category-icon{
+  font-size:25px;
+  margin-bottom:5px;
+}
+
+.category strong{
+  font-size:13px;
+  display:block;
+}
+
+.category small{
+  font-size:9px;
+  color:#777;
+  direction:ltr;
+  display:block;
+}
+
+/* ================= PRODUCTS ================= */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.product{
+  background:white;
+  border-radius:13px;
+  overflow:hidden;
+  border:1px solid #e0e0e0;
+  box-shadow:0 5px 14px rgba(0,0,0,.07);
+}
+
+.product-img{
+  height:145px;
+  background:linear-gradient(135deg,#222,#777);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:13px;
+  text-align:center;
+  direction:ltr;
+}
+
+.product-info{
+  padding:10px;
+}
+
+.tag{
+  display:inline-block;
+  background:#111;
+  color:white;
+  font-size:9px;
+  padding:3px 7px;
+  border-radius:5px;
+  margin-bottom:5px;
+}
+
+.product h3{
+  font-size:14px;
+  line-height:1.4;
+  margin-bottom:4px;
+}
+
+.price{
+  font-size:17px;
+  font-weight:900;
+  color:#d71920;
+  direction:ltr;
+  text-align:left;
+  margin:4px 0;
+}
+
+.order-btn{
+  display:block;
+  text-align:center;
+  background:#111;
+  color:white;
+  padding:8px 5px;
+  border-radius:8px;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.order-btn:hover{
+  background:#d71920;
+}
+
+.wa-icon{
+  color:#25D366;
+  font-size:15px;
+  vertical-align:middle;
+  margin-left:4px;
+}
+
+/* ================= DEALS ================= */
+
+.deal-grid{
+  display:grid;
+  gap:12px;
+}
+
+.deal{
+  background:#111;
+  color:white;
+  border-radius:15px;
+  padding:18px;
+  border-right:4px solid #d71920;
+}
+
+.deal h3{
+  font-size:18px;
+}
+
+.deal p{
+  color:#ccc;
+  font-size:13px;
+}
+
+.deal-price{
+  color:#ff4a4a;
+  font-size:21px;
+  font-weight:900;
+  direction:ltr;
+  margin-top:5px;
+}
+
+/* ================= BUILD DEAL ================= */
+
+.build{
+  background:linear-gradient(135deg,#1a1a1a,#080808);
+  color:white;
+  border-radius:17px;
+  padding:23px 18px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.build h2{
+  font-size:23px;
+}
+
+.build p{
+  color:#ccc;
+  font-size:13px;
+  margin:7px 0 14px;
+}
+
+.build-btn{
+  display:inline-block;
+  background:#d71920;
+  color:white;
+  padding:10px 22px;
+  border-radius:9px;
+  font-weight:bold;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+  position:fixed;
+  bottom:17px;
+  left:17px;
+  z-index:999;
+  background:#111;
+  color:white;
+  border:2px solid #d71920;
+  padding:11px 15px;
+  border-radius:30px;
+  font-weight:bold;
+  box-shadow:0 6px 20px rgba(0,0,0,.3);
+}
+
+.whatsapp:hover{
+  background:#d71920;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#080808;
+  color:white;
+  padding:28px 0 90px;
+  text-align:center;
+  margin-top:20px;
+}
+
+footer h3{
+  font-size:20px;
+  direction:ltr;
+}
+
+footer p{
+  color:#aaa;
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width:700px){
+
+  .hero h1{
+    font-size:45px;
+  }
+
+  .category-grid{
+    grid-template-columns:repeat(6,1fr);
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .deal-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-img{
+    height:175px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="container header-inner">
-    <div class="brand">MANI DECORATION</div>
+<!-- ================= HEADER ================= -->
 
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+<header>
+
+  <div class="container header-inner">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        MD
+      </div>
+
+      <div class="brand-name">
+        MANI DECORATION
+      </div>
+
+    </div>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Menu"
+      aria-expanded="false"
+    >
       ☰
     </button>
+
   </div>
 
   <nav class="menu" id="menu">
+
     <div class="container">
+
       <a href="#home">🏠 گھر</a>
+
       <a href="#vehicles">🚗 اپنی گاڑی منتخب کریں</a>
+
       <a href="#categories">🛍️ گاڑی کا سامان</a>
+
       <a href="#hot">🔥 Hot Items</a>
+
       <a href="#deals">🎁 خاص ڈیلز</a>
+
       <a href="#build">🧰 اپنی ڈیل بنائیں</a>
+
       <a href="#contact">📞 رابطہ کریں</a>
+
     </div>
+
   </nav>
+
 </header>
+
 
 <main id="home">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>MANI DECORATION</h1>
-      <p>گاڑیوں کا سامان • Auto Accessories • Custom Work</p>
-    </div>
-  </section>
+<!-- ================= HERO ================= -->
 
-  <!-- OFFER -->
-  <div class="offer-wrap">
-    <div class="container">
-      <div class="offer" id="offerBox">
-        <small>🔥 HOT DEAL</small>
-        <h2>اپنی گاڑی کو نیا انداز دیں</h2>
-        <p>خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان</p>
-        <a href="#deals" class="offer-btn">ڈیل دیکھیں</a>
-      </div>
-    </div>
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <h1>MANI DECORATION</h1>
+
+    <p>
+      گاڑیوں کا سامان • Auto Accessories • Custom Work
+    </p>
+
   </div>
 
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-track">
-      🔥 Hot Items &nbsp;&nbsp; | &nbsp;&nbsp;
-      ⭐ Best Sellers &nbsp;&nbsp; | &nbsp;&nbsp;
-      🎁 Special Deals &nbsp;&nbsp; | &nbsp;&nbsp;
-      📦 Bulk Orders Welcome &nbsp;&nbsp; | &nbsp;&nbsp;
-      📲 WhatsApp پر آرڈر کریں
+</section>
+
+
+<!-- ================= OFFER ================= -->
+
+<div class="offer-wrap">
+
+  <div class="container">
+
+    <div class="offer" id="offerBox">
+
+      <small id="offerSmall">
+        🔥 HOT DEAL
+      </small>
+
+      <h2 id="offerTitle">
+        اپنی گاڑی کو نیا انداز دیں
+      </h2>
+
+      <p id="offerText">
+        خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان
+      </p>
+
+      <a
+        href="#deals"
+        class="offer-btn"
+        id="offerBtn"
+      >
+        ڈیل دیکھیں
+      </a>
+
     </div>
+
   </div>
 
-  <!-- SEARCH -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2>اپنی گاڑی کا سامان تلاش کریں</h2>
-        <span>Search</span>
-      </div>
+</div>
 
-      <div class="search-box">
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Search vehicle or product..."
-          oninput="searchProducts()"
-        >
-        <button onclick="searchProducts()">🔍</button>
-      </div>
+
+<!-- ================= TICKER ================= -->
+
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    🔥 Hot Items
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+
+    ⭐ Best Sellers
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+
+    🎁 Special Deals
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+
+    📦 Bulk Orders Welcome
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+
+    📲 WhatsApp پر آرڈر کریں
+
+  </div>
+
+</div>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        اپنی گاڑی کا سامان تلاش کریں
+      </h2>
+
+      <span>
+        Search
+      </span>
+
     </div>
-  </section>
 
-  <!-- VEHICLES -->
-  <section id="vehicles">
-    <div class="container">
-      <div class="section-title">
-        <h2>اپنی گاڑی منتخب کریں</h2>
-        <span>Vehicles</span>
-      </div>
+    <div class="search-box">
 
-      <div class="vehicle-scroll">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search vehicle or product..."
+      >
 
-        <div class="vehicle" onclick="vehicleSearch('Suzuki Carry')">
-          <div class="vehicle-img">SUZUKI CARRY</div>
-          <strong>Suzuki Carry</strong>
-          <small>کیری ڈبہ</small>
-        </div>
+      <button
+        type="button"
+        id="searchBtn"
+      >
+        🔍
+      </button>
 
-        <div class="vehicle" onclick="vehicleSearch('Shahzore')">
-          <div class="vehicle-img">SHAHZORE</div>
-          <strong>Shahzore</strong>
-          <small>شہزور</small>
-        </div>
-
-        <div class="vehicle" onclick="vehicleSearch('Hyundai Porter')">
-          <div class="vehicle-img">PORTER</div>
-          <strong>Hyundai Porter</strong>
-          <small>پورٹر</small>
-        </div>
-
-        <div class="vehicle" onclick="vehicleSearch('JAC X200')">
-          <div class="vehicle-img">JAC X200</div>
-          <strong>JAC X200</strong>
-          <small>JAC</small>
-        </div>
-
-        <div class="vehicle" onclick="vehicleSearch('Other')">
-          <div class="vehicle-img">OTHER</div>
-          <strong>Other Vehicles</strong>
-          <small>دیگر گاڑیاں</small>
-        </div>
-
-      </div>
     </div>
-  </section>
 
-  <!-- CATEGORIES -->
-  <section id="categories">
-    <div class="container">
-      <div class="section-title">
-        <h2>گاڑی کا سامان</h2>
-        <span>Auto Accessories</span>
-      </div>
+  </div>
 
-      <div class="category-grid">
+</section>
 
-        <a href="#hot" class="category">
-          <div class="category-icon">💺</div>
-          <strong>سیٹ کور</strong>
-          <small>Seat Covers</small>
-        </a>
 
-        <a href="#hot" class="category">
-          <div class="category-icon">🧩</div>
-          <strong>میٹ</strong>
-          <small>Floor Mats</small>
-        </a>
+<!-- ================= VEHICLES ================= -->
 
-        <a href="#hot" class="category">
-          <div class="category-icon">✨</div>
-          <strong>گاڑی کی سجاوٹ</strong>
-          <small>Auto Decoration</small>
-        </a>
+<section id="vehicles">
 
-        <a href="#hot" class="category">
-          <div class="category-icon">🧴</div>
-          <strong>صفائی کا سامان</strong>
-          <small>Car Care</small>
-        </a>
+  <div class="container">
 
-        <a href="#hot" class="category">
-          <div class="category-icon">🔧</div>
-          <strong>گاڑی کے پارٹس</strong>
-          <small>Auto Parts</small>
-        </a>
+    <div class="section-title">
 
-        <a href="#build" class="category">
-          <div class="category-icon">🛠️</div>
-          <strong>کسٹم کام</strong>
-          <small>Custom Work</small>
-        </a>
+      <h2>
+        اپنی گاڑی منتخب کریں
+      </h2>
 
-      </div>
+      <span>
+        Vehicles
+      </span>
+
     </div>
-  </section>
 
-  <!-- HOT PRODUCTS -->
-  <section id="hot">
-    <div class="container">
 
-      <div class="section-title">
-        <h2>🔥 Hot Items</h2>
-        <span>Best Sellers</span>
+    <div class="vehicle-scroll">
+
+      <div
+        class="vehicle"
+        data-vehicle="Suzuki Carry"
+      >
+
+        <div class="vehicle-img">
+          SUZUKI CARRY
+        </div>
+
+        <strong>
+          Suzuki Carry
+        </strong>
+
+        <small>
+          کیری ڈبہ
+        </small>
+
       </div>
 
-      <div class="product-grid" id="productGrid">
 
-        <div class="product" data-name="Seat Cover Suzuki Carry">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">BEST SELLER</span>
-            <h3>Suzuki Carry Seat Cover</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
+      <div
+        class="vehicle"
+        data-vehicle="Shahzore"
+      >
+
+        <div class="vehicle-img">
+          SHAHZORE
         </div>
 
-        <div class="product" data-name="Floor Mat Suzuki Carry Shahzore Porter JAC">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">HOT ITEM</span>
-            <h3>Vehicle Floor Mat</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
+        <strong>
+          Shahzore
+        </strong>
 
-        <div class="product" data-name="Dashboard Polish 7CF">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">HOT SELLING</span>
-            <h3>7CF Dashboard Polish</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%207CF%20Dashboard%20Polish%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
-
-        <div class="product" data-name="Microfiber Towel Cleaning">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">POPULAR</span>
-            <h3>Microfiber Towel</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Microfiber%20Towel%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
+        <small>
+          شہزور
+        </small>
 
       </div>
+
+
+      <div
+        class="vehicle"
+        data-vehicle="Hyundai Porter"
+      >
+
+        <div class="vehicle-img">
+          PORTER
+        </div>
+
+        <strong>
+          Hyundai Porter
+        </strong>
+
+        <small>
+          پورٹر
+        </small>
+
+      </div>
+
+
+      <div
+        class="vehicle"
+        data-vehicle="JAC X200"
+      >
+
+        <div class="vehicle-img">
+          JAC X200
+        </div>
+
+        <strong>
+          JAC X200
+        </strong>
+
+        <small>
+          JAC
+        </small>
+
+      </div>
+
+
+      <div
+        class="vehicle"
+        data-vehicle="Other"
+      >
+
+        <div class="vehicle-img">
+          OTHER
+        </div>
+
+        <strong>
+          Other Vehicles
+        </strong>
+
+        <small>
+          دیگر گاڑیاں
+        </small>
+
+      </div>
+
     </div>
-  </section>
 
-  <!-- DEALS -->
-  <section id="deals">
-    <div class="container">
+  </div>
 
-      <div class="section-title">
-        <h2>🎁 خاص ڈیلز</h2>
-        <span>Special Deals</span>
-      </div>
+</section>
 
-      <div class="deal-grid">
 
-        <div class="deal">
-          <h3>Suzuki Carry Decoration Deal</h3>
-          <p>سیٹ کور + میٹ + صفائی/کار کیئر اور دوسری منتخب چیزیں</p>
-          <div class="deal-price">PKR —</div>
+<!-- ================= CATEGORIES ================= -->
+
+<section id="categories">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        گاڑی کا سامان
+      </h2>
+
+      <span>
+        Auto Accessories
+      </span>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <a href="#hot" class="category">
+
+        <div class="category-icon">
+          💺
+        </div>
+
+        <strong>
+          سیٹ کور
+        </strong>
+
+        <small>
+          Seat Covers
+        </small>
+
+      </a>
+
+
+      <a href="#hot" class="category">
+
+        <div class="category-icon">
+          🧩
+        </div>
+
+        <strong>
+          میٹ
+        </strong>
+
+        <small>
+          Floor Mats
+        </small>
+
+      </a>
+
+
+      <a href="#hot" class="category">
+
+        <div class="category-icon">
+          ✨
+        </div>
+
+        <strong>
+          گاڑی کی سجاوٹ
+        </strong>
+
+        <small>
+          Auto Decoration
+        </small>
+
+      </a>
+
+
+      <a href="#hot" class="category">
+
+        <div class="category-icon">
+          🧴
+        </div>
+
+        <strong>
+          صفائی کا سامان
+        </strong>
+
+        <small>
+          Car Care
+        </small>
+
+      </a>
+
+
+      <a href="#hot" class="category">
+
+        <div class="category-icon">
+          🔧
+        </div>
+
+        <strong>
+          گاڑی کے پارٹس
+        </strong>
+
+        <small>
+          Auto Parts
+        </small>
+
+      </a>
+
+
+      <a href="#build" class="category">
+
+        <div class="category-icon">
+          🛠️
+        </div>
+
+        <strong>
+          کسٹم کام
+        </strong>
+
+        <small>
+          Custom Work
+        </small>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HOT PRODUCTS ================= -->
+
+<section id="hot">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        🔥 Hot Items
+      </h2>
+
+      <span>
+        Best Sellers
+      </span>
+
+    </div>
+
+
+    <div class="product-grid" id="productGrid">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div
+        class="product"
+        data-name="Seat Cover Suzuki Carry"
+      >
+
+        <div class="product-img">
+          PRODUCT IMAGE
+        </div>
+
+        <div class="product-info">
+
+          <span class="tag">
+            BEST SELLER
+          </span>
+
+          <h3>
+            Suzuki Carry Seat Cover
+          </h3>
+
+          <div class="price">
+            PKR —
+          </div>
+
           <a
             class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
+            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye."
             target="_blank"
+            rel="noopener"
           >
-            Deal کی معلومات WhatsApp پر
+            <span class="wa-icon">●</span>
+            WhatsApp پر آرڈر
           </a>
-        </div>
 
-        <div class="deal">
-          <h3>Shahzore / Porter / JAC Deal</h3>
-          <p>ان گاڑیوں کے مشترکہ سامان کے لیے خصوصی package تیار کیا جا سکتا ہے</p>
-          <div class="deal-price">PKR —</div>
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Shahzore%20Porter%20JAC%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-          >
-            Deal کی معلومات WhatsApp پر
-          </a>
         </div>
 
       </div>
+
+
+      <!-- PRODUCT 2 -->
+
+      <div
+        class="product"
+        data-name="Floor Mat Suzuki Carry Shahzore Porter JAC"
+      >
+
+        <div class="product-img">
+          PRODUCT IMAGE
+        </div>
+
+        <div class="product-info">
+
+          <span class="tag">
+            HOT ITEM
+          </span>
+
+          <h3>
+            Vehicle Floor Mat
+          </h3>
+
+          <div class="price">
+            PKR —
+          </div>
+
+          <a
+            class="order-btn"
+            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye."
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="wa-icon">●</span>
+            WhatsApp پر آرڈر
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+
+      <div
+        class="product"
+        data-name="Dashboard Polish 7CF"
+      >
+
+        <div class="product-img">
+          PRODUCT IMAGE
+        </div>
+
+        <div class="product-info">
+
+          <span class="tag">
+            HOT SELLING
+          </span>
+
+          <h3>
+            7CF Dashboard Polish
+          </h3>
+
+          <div class="price">
+            PKR —
+          </div>
+
+          <a
+            class="order-btn"
+            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%207CF%20Dashboard%20Polish%20ke%20bare%20mein%20maloomat%20chahiye."
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="wa-icon">●</span>
+            WhatsApp پر آرڈر
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+
+      <div
+        class="product"
+        data-name="Microfiber Towel Cleaning"
+      >
+
+        <div class="product-img">
+          PRODUCT IMAGE
+        </div>
+
+        <div class="product-info">
+
+          <span class="tag">
+            POPULAR
+          </span>
+
+          <h3>
+            Microfiber Towel
+          </h3>
+
+          <div class="price">
+            PKR —
+          </div>
+
+          <a
+            class="order-btn"
+            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Microfiber%20Towel%20ke%20bare%20mein%20maloomat%20chahiye."
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="wa-icon">●</span>
+            WhatsApp پر آرڈر
+          </a>
+
+        </div>
+
+      </div>
+
+
     </div>
-  </section>
 
-  <!-- BUILD DEAL -->
-  <section id="build">
-    <div class="container">
+  </div>
 
-      <div class="build">
-        <h2>🧰 اپنی ڈیل خود بنائیں</h2>
+</section>
+
+
+<!-- ================= DEALS ================= -->
+
+<section id="deals">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        🎁 خاص ڈیلز
+      </h2>
+
+      <span>
+        Special Deals
+      </span>
+
+    </div>
+
+
+    <div class="deal-grid">
+
+
+      <div class="deal">
+
+        <h3>
+          Suzuki Carry Decoration Deal
+        </h3>
 
         <p>
-          اپنی پسند کی کئی چیزیں منتخب کریں۔
-          کم یا زیادہ quantity کے مطابق ہم آپ کے لیے package/deal تیار کریں گے۔
+          سیٹ کور + میٹ + صفائی/کار کیئر اور دوسری منتخب چیزیں
         </p>
 
+        <div class="deal-price">
+          PKR —
+        </div>
+
         <a
-          class="build-btn"
-          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20main%20apni%20gaari%20ke%20liye%20apni%20deal%20banwana%20chahta%20hoon."
+          class="order-btn"
+          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
           target="_blank"
+          rel="noopener"
         >
-          WhatsApp پر ڈیل بنائیں
+          <span class="wa-icon">●</span>
+          Deal کی معلومات WhatsApp پر
         </a>
+
       </div>
 
+
+      <div class="deal">
+
+        <h3>
+          Shahzore / Porter / JAC Deal
+        </h3>
+
+        <p>
+          ان گاڑیوں کے مشترکہ سامان کے لیے خصوصی package تیار کیا جا سکتا ہے
+        </p>
+
+        <div class="deal-price">
+          PKR —
+        </div>
+
+        <a
+          class="order-btn"
+          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Shahzore%20Porter%20JAC%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="wa-icon">●</span>
+          Deal کی معلومات WhatsApp پر
+        </a>
+
+      </div>
+
+
     </div>
-  </section>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BUILD DEAL ================= -->
+
+<section id="build">
+
+  <div class="container">
+
+    <div class="build">
+
+      <h2>
+        🧰 اپنی ڈیل خود بنائیں
+      </h2>
+
+      <p>
+        اپنی پسند کی کئی چیزیں منتخب کریں۔
+        کم یا زیادہ quantity کے مطابق ہم آپ کے لیے package/deal تیار کریں گے۔
+      </p>
+
+      <a
+        class="build-btn"
+        href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20main%20apni%20gaari%20ke%20liye%20apni%20deal%20banwana%20chahta%20hoon."
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp پر ڈیل بنائیں
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 </main>
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
+
 <footer id="contact">
+
   <div class="container">
-    <h3>MANI DECORATION</h3>
-    <p>Auto Decoration • Accessories • Car Care • Custom Work</p>
-    <p>📲 WhatsApp: +92 312 9542995</p>
-    <p>© 2026 MANI DECORATION</p>
+
+    <h3>
+      MANI DECORATION
+    </h3>
+
+    <p>
+      Auto Decoration • Accessories • Car Care • Custom Work
+    </p>
+
+    <p>
+      📲 WhatsApp: +92 312 9542995
+    </p>
+
+    <p>
+      © 2026 MANI DECORATION
+    </p>
+
   </div>
+
 </footer>
+
+
+<!-- ================= FLOATING WHATSAPP ================= -->
 
 <a
   class="whatsapp"
   href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20MANI%20DECORATION%20ke%20products%20ke%20bare%20mein%20maloomat%20chahiye."
   target="_blank"
+  rel="noopener"
 >
-  📲 WhatsApp
+  <span class="wa-icon">●</span>
+  WhatsApp
 </a>
+
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-  /* MENU */
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("show");
-  }
+/* ==========================================
+   MENU
+========================================== */
 
-  /* SEARCH */
-  function searchProducts() {
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
 
-    const input = document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+menuBtn.addEventListener("click", function(){
 
-    const products = document.querySelectorAll(".product");
+  menu.classList.toggle("show");
 
-    products.forEach(product => {
+  const isOpen = menu.classList.contains("show");
 
-      const name = product
-        .getAttribute("data-name")
-        .toLowerCase();
+  menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
-      if (input === "" || name.includes(input)) {
-        product.style.display = "";
-      } else {
-        product.style.display = "none";
-      }
+});
 
-    });
 
-    document.getElementById("hot").scrollIntoView({
-      behavior: "smooth"
-    });
-  }
+/* CLOSE MENU AFTER CLICKING A MENU LINK */
 
-  /* VEHICLE SEARCH */
-  function vehicleSearch(vehicle) {
+const menuLinks = document.querySelectorAll(".menu a");
 
-    document.getElementById("searchInput").value = vehicle;
+menuLinks.forEach(function(link){
+
+  link.addEventListener("click", function(){
+
+    menu.classList.remove("show");
+
+    menuBtn.setAttribute("aria-expanded","false");
+
+  });
+
+});
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const products = document.querySelectorAll(".product");
+
+
+function searchProducts(){
+
+  const input = searchInput.value
+    .toLowerCase()
+    .trim();
+
+  products.forEach(function(product){
+
+    const name = product
+      .getAttribute("data-name")
+      .toLowerCase();
+
+    if(input === "" || name.includes(input)){
+
+      product.style.display = "";
+
+    }else{
+
+      product.style.display = "none";
+
+    }
+
+  });
+
+  document.getElementById("hot").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+searchBtn.addEventListener("click", searchProducts);
+
+
+/* SEARCH WHILE TYPING */
+
+searchInput.addEventListener("input", function(){
+
+  const input = searchInput.value
+    .toLowerCase()
+    .trim();
+
+  products.forEach(function(product){
+
+    const name = product
+      .getAttribute("data-name")
+      .toLowerCase();
+
+    if(input === "" || name.includes(input)){
+
+      product.style.display = "";
+
+    }else{
+
+      product.style.display = "none";
+
+    }
+
+  });
+
+});
+
+
+/* ==========================================
+   VEHICLE SEARCH
+========================================== */
+
+const vehicles = document.querySelectorAll(".vehicle");
+
+vehicles.forEach(function(vehicle){
+
+  vehicle.addEventListener("click", function(){
+
+    const vehicleName =
+      vehicle.getAttribute("data-vehicle");
+
+    searchInput.value = vehicleName;
 
     searchProducts();
 
+  });
+
+});
+
+
+/* ==========================================
+   OFFER SLIDER
+   CHANGES EVERY 5 SECONDS
+========================================== */
+
+const offers = [
+
+  {
+    small:"🔥 HOT DEAL",
+    title:"اپنی گاڑی کو نیا انداز دیں",
+    text:"خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان",
+    link:"#deals",
+    button:"ڈیل دیکھیں"
+  },
+
+  {
+    small:"⭐ BEST SELLERS",
+    title:"مشہور اور پسندیدہ سامان",
+    text:"سیٹ کور، میٹ، کار کیئر اور دیگر Auto Accessories",
+    link:"#hot",
+    button:"Hot Items دیکھیں"
+  },
+
+  {
+    small:"📦 BULK ORDERS",
+    title:"زیادہ سامان؟ اپنی Deal بنائیں",
+    text:"Quantity کے مطابق package اور special deal کے لیے WhatsApp کریں",
+    link:"#build",
+    button:"اپنی Deal بنائیں"
   }
 
-  /* OFFER SLIDER */
-  const offers = [
+];
 
- 
+
+let offerIndex = 0;
+
+const offerBox = document.getElementById("offerBox");
+const offerSmall = document.getElementById("offerSmall");
+const offerTitle = document.getElementById("offerTitle");
+const offerText = document.getElementById("offerText");
+const offerBtn = document.getElementById("offerBtn");
+
+
+function showOffer(){
+
+  const offer = offers[offerIndex];
+
+  offerBox.classList.add("fade");
+
+  setTimeout(function(){
+
+    offerSmall.textContent = offer.small;
+
+    offerTitle.textContent = offer.title;
+
+    offerText.textContent = offer.text;
+
+    offerBtn.href = offer.link;
+
+    offerBtn.textContent = offer.button;
+
+    offerBox.classList.remove("fade");
+
+  },180);
+
+}
+
+
+/* FIRST OFFER */
+
+showOffer();
+
+
+/* CHANGE EVERY 5 SECONDS */
+
+setInterval(function(){
+
+  offerIndex++;
+
+  if(offerIndex >= offers.length){
+
+    offerIndex = 0;
+
+  }
+
+  showOffer();
+
+},5000);
+
+
+/* ==========================================
+   STOP SLIDER WHILE USER IS PRESSING IT
+   THEN CONTINUE
+========================================== */
+
+let sliderTimer;
+
+function restartSlider(){
+
+  clearInterval(sliderTimer);
+
+  sliderTimer = setInterval(function(){
+
+    offerIndex++;
+
+    if(offerIndex >= offers.length){
+
+      offerIndex = 0;
+
+    }
+
+    showOffer();
+
+  },5000);
+
+}
+
+
+/* ==========================================
+   SAFETY CHECK
+   ENSURES SLIDER STARTS
+========================================== */
+
+restartSlider();
+
+</script>
+
+</body>
+</html>
