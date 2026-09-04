@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MANI DECORATION - Product Manager</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,"Noto Sans",sans-serif;
+  background:#f3f3f3;
+  color:#111;
+  padding:20px;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+}
+
+.header{
+  background:#090909;
+  color:white;
+  padding:20px;
+  border-radius:15px;
+  border-bottom:4px solid #d71920;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.header h1{
+  color:white;
+  font-size:25px;
+}
+
+.header p{
+  color:#ccc;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.card{
+  background:white;
+  padding:18px;
+  border-radius:15px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  margin-bottom:15px;
+}
+
+.card h2{
+  font-size:19px;
+  margin-bottom:15px;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  font-size:14px;
+  margin:12px 0 5px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:15px;
+  background:white;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.add-btn{
+  background:#d71920;
+  color:white;
+}
+
+.clear-btn{
+  background:#111;
+  color:white;
+}
+
+.product{
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:12px;
+  margin-top:10px;
+}
+
+.product h3{
+  margin-bottom:4px;
+}
+
+.product .price{
+  color:#d71920;
+  font-weight:bold;
+}
+
+.product small{
+  color:#666;
+}
+
+.delete{
+  background:#d71920;
+  color:white;
+  padding:8px;
+  margin-top:8px;
+}
+
+.success{
+  display:none;
+  background:#e8f8ed;
+  color:#176b32;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>MANI DECORATION</h1>
+    <p>Product Manager</p>
+  </div>
+
+  <div class="card">
+
+    <h2>➕ نیا Product شامل کریں</h2>
+
+    <label>Product Name</label>
+    <input
+      type="text"
+      id="name"
+      placeholder="مثلاً Microfiber Towel"
+    >
+
+    <label>Price (PKR)</label>
+    <input
+      type="number"
+      id="price"
+      placeholder="مثلاً 400"
+    >
+
+    <label>Category</label>
+    <select id="category">
+      <option value="Car Care">Car Care</option>
+      <option value="Seat Covers">Seat Covers</option>
+      <option value="Floor Mats">Floor Mats</option>
+      <option value="Auto Decoration">Auto Decoration</option>
+      <option value="Auto Parts">Auto Parts</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Product Image File Name</label>
+    <input
+      type="text"
+      id="image"
+      placeholder="مثلاً microfiber.png"
+    >
+
+    <label>Description</label>
+    <textarea
+      id="description"
+      placeholder="Product کی تفصیل یہاں لکھیں..."
+    ></textarea>
+
+    <label>Tag</label>
+    <input
+      type="text"
+      id="tag"
+      placeholder="مثلاً POPULAR"
+    >
+
+    <button
+      class="add-btn"
+      onclick="addProduct()"
+    >
+      Product محفوظ کریں
+    </button>
+
+    <div
+      class="success"
+      id="success"
+    >
+      ✅ Product کامیابی سے محفوظ ہو گیا
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>📦 میرے Products</h2>
+
+    <div id="productList"></div>
+
+    <button
+      class="clear-btn"
+      onclick="clearProducts()"
+    >
+      تمام Products صاف کریں
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function getProducts(){
+
+  return JSON.parse(
+    localStorage.getItem("maniProducts") || "[]"
+  );
+
+}
+
+
+function saveProducts(products){
+
+  localStorage.setItem(
+    "maniProducts",
+    JSON.stringify(products)
+  );
+
+}
+
+
+function addProduct(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const price =
+    document.getElementById("price").value.trim();
+
+  const category =
+    document.getElementById("category").value;
+
+  const image =
+    document.getElementById("image").value.trim();
+
+  const description =
+    document.getElementById("description").value.trim();
+
+  const tag =
+    document.getElementById("tag").value.trim();
+
+
+  if(!name || !price){
+
+    alert("Product Name اور Price لازمی لکھیں۔");
+
+    return;
+
+  }
+
+
+  const products = getProducts();
+
+
+  products.push({
+
+    id:Date.now(),
+
+    name:name,
+
+    price:price,
+
+    category:category,
+
+    image:image,
+
+    description:description,
+
+    tag:tag
+
+  });
+
+
+  saveProducts(products);
+
+
+  document.getElementById("name").value="";
+  document.getElementById("price").value="";
+  document.getElementById("image").value="";
+  document.getElementById("description").value="";
+  document.getElementById("tag").value="";
+
+
+  document.getElementById("success").style.display="block";
+
+
+  setTimeout(function(){
+
+    document.getElementById("success").style.display="none";
+
+  },2000);
+
+
+  showProducts();
+
+}
+
+
+function showProducts(){
+
+  const list =
+    document.getElementById("productList");
+
+  const products = getProducts();
+
+
+  if(products.length === 0){
+
+    list.innerHTML =
+      "<p style='color:#777'>ابھی کوئی Product شامل نہیں کیا گیا۔</p>";
+
+    return;
+
+  }
+
+
+  list.innerHTML = "";
+
+
+  products.forEach(function(product){
+
+    const div =
+      document.createElement("div");
+
+    div.className="product";
+
+
+    div.innerHTML=`
+
+      <h3>${escapeHTML(product.name)}</h3>
+
+      <div class="price">
+        PKR ${escapeHTML(product.price)}
+      </div>
+
+      <small>
+        ${escapeHTML(product.category)}
+      </small>
+
+      <p style="margin-top:6px;font-size:13px">
+        ${escapeHTML(product.description)}
+      </p>
+
+      <button
+        class="delete"
+        onclick="deleteProduct(${product.id})"
+      >
+        🗑️ Delete
+      </button>
+
+    `;
+
+
+    list.appendChild(div);
+
+  });
+
+}
+
+
+function deleteProduct(id){
+
+  if(!confirm("کیا آپ یہ Product delete کرنا چاہتے ہیں؟")){
+
+    return;
+
+  }
+
+
+  let products = getProducts();
+
+
+  products =
+    products.filter(function(product){
+
+      return product.id !== id;
+
+    });
+
+
+  saveProducts(products);
+
+  showProducts();
+
+}
+
+
+function clearProducts(){
+
+  if(!confirm("کیا آپ تمام Products delete کرنا چاہتے ہیں؟")){
+
+    return;
+
+  }
+
+
+  localStorage.removeItem("maniProducts");
+
+  showProducts();
+
+}
+
+
+function escapeHTML(text){
+
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+showProducts();
+
+</script>
+
+</body>
+</html>
