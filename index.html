@@ -27,13 +27,21 @@
       color: inherit;
     }
 
+    button,
+    input {
+      font-family: inherit;
+    }
+
     .container {
       width: 92%;
       max-width: 1200px;
       margin: auto;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================== */
+
     header {
       background: #090909;
       color: white;
@@ -51,13 +59,40 @@
       gap: 12px;
     }
 
+    /* MD LOGO */
+
     .brand {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: white;
-      text-shadow: 2px 2px 0 #d71920;
+      display: flex;
+      align-items: center;
+      gap: 9px;
       direction: ltr;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #e51c23, #a90f14);
+      color: white;
+      border: 2px solid white;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      box-shadow:
+        0 4px 0 #6e080c,
+        0 7px 14px rgba(0,0,0,.35);
+    }
+
+    .brand-name {
+      color: white;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      white-space: nowrap;
+      text-shadow: 1px 2px 0 #8f0f14;
     }
 
     .menu-btn {
@@ -71,7 +106,10 @@
       cursor: pointer;
     }
 
-    /* MENU */
+    /* =========================
+       MENU
+    ========================== */
+
     .menu {
       display: none;
       background: #111;
@@ -90,7 +128,10 @@
       border-bottom: 1px solid #292929;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================== */
+
     .hero {
       background:
         radial-gradient(circle at top right, #3a0808, transparent 45%),
@@ -116,7 +157,10 @@
       font-size: 15px;
     }
 
-    /* OFFER SLIDER */
+    /* =========================
+       OFFER SLIDER
+    ========================== */
+
     .offer-wrap {
       padding: 15px 0 5px;
       background: #111;
@@ -133,6 +177,7 @@
       justify-content: center;
       text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      transition: .25s ease;
     }
 
     .offer small {
@@ -160,7 +205,10 @@
       font-weight: bold;
     }
 
-    /* MOVING STRIP */
+    /* =========================
+       TICKER
+    ========================== */
+
     .ticker {
       overflow: hidden;
       background: #050505;
@@ -182,12 +230,16 @@
       from {
         transform: translateX(0);
       }
+
       to {
         transform: translateX(100%);
       }
     }
 
-    /* SECTION */
+    /* =========================
+       SECTION
+    ========================== */
+
     section {
       padding: 25px 0;
     }
@@ -211,7 +263,10 @@
       direction: ltr;
     }
 
-    /* SEARCH */
+    /* =========================
+       SEARCH
+    ========================== */
+
     .search-box {
       display: flex;
       gap: 8px;
@@ -244,13 +299,17 @@
       cursor: pointer;
     }
 
-    /* VEHICLES */
+    /* =========================
+       VEHICLES
+    ========================== */
+
     .vehicle-scroll {
       display: flex;
       gap: 12px;
       overflow-x: auto;
       padding-bottom: 8px;
       direction: ltr;
+      scrollbar-width: thin;
     }
 
     .vehicle {
@@ -262,6 +321,11 @@
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,.07);
       cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .vehicle:active {
+      transform: scale(.97);
     }
 
     .vehicle-img {
@@ -288,7 +352,10 @@
       font-size: 11px;
     }
 
-    /* CATEGORIES */
+    /* =========================
+       CATEGORIES
+    ========================== */
+
     .category-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -302,6 +369,11 @@
       text-align: center;
       border: 1px solid #e2e2e2;
       box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      transition: .2s ease;
+    }
+
+    .category:active {
+      transform: scale(.97);
     }
 
     .category-icon {
@@ -321,7 +393,10 @@
       display: block;
     }
 
-    /* PRODUCTS */
+    /* =========================
+       PRODUCTS
+    ========================== */
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -377,18 +452,48 @@
       margin: 4px 0;
     }
 
+    /* =========================
+       WHATSAPP PRODUCT BUTTON
+    ========================== */
+
     .order-btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       text-align: center;
       background: #111;
       color: white;
-      padding: 8px 5px;
+      padding: 9px 5px;
       border-radius: 8px;
       font-size: 12px;
       margin-top: 7px;
+      border: 1px solid #222;
+      transition: .2s ease;
     }
 
-    /* DEALS */
+    .order-btn:hover {
+      background: #128c7e;
+    }
+
+    .wa-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      direction: ltr;
+    }
+
+    /* =========================
+       DEALS
+    ========================== */
+
     .deal-grid {
       display: grid;
       gap: 12px;
@@ -419,7 +524,10 @@
       margin-top: 5px;
     }
 
-    /* BUILD DEAL */
+    /* =========================
+       BUILD DEAL
+    ========================== */
+
     .build {
       background: linear-gradient(135deg, #1a1a1a, #080808);
       color: white;
@@ -440,30 +548,47 @@
     }
 
     .build-btn {
-      display: inline-block;
-      background: #d71920;
-      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #25D366;
+      color: #071b0d;
       padding: 10px 22px;
       border-radius: 9px;
       font-weight: bold;
     }
 
-    /* WHATSAPP */
+    /* =========================
+       GENERAL WHATSAPP
+    ========================== */
+
     .whatsapp {
       position: fixed;
       bottom: 17px;
       left: 17px;
       z-index: 999;
-      background: #111;
-      color: white;
-      border: 2px solid #d71920;
-      padding: 11px 15px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: #25D366;
+      color: #071b0d;
+      border: 2px solid white;
+      padding: 10px 15px;
       border-radius: 30px;
       font-weight: bold;
       box-shadow: 0 6px 20px rgba(0,0,0,.3);
     }
 
-    /* FOOTER */
+    .whatsapp .wa-icon {
+      background: white;
+      color: #128c7e;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
     footer {
       background: #080808;
       color: white;
@@ -483,8 +608,21 @@
       margin-top: 5px;
     }
 
-    /* TABLET / DESKTOP */
+    /* =========================
+       TABLET / DESKTOP
+    ========================== */
+
     @media (min-width: 700px) {
+
+      .brand-icon {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand-name {
+        font-size: 22px;
+      }
+
       .hero h1 {
         font-size: 45px;
       }
@@ -511,429 +649,327 @@
 <body>
 
 <header>
+
   <div class="container header-inner">
-    <div class="brand">MANI DECORATION</div>
+
+    <div class="brand">
+      <div class="brand-icon">MD</div>
+      <div class="brand-name">MANI DECORATION</div>
+    </div>
 
     <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
       ☰
     </button>
+
   </div>
 
   <nav class="menu" id="menu">
+
     <div class="container">
+
       <a href="#home">🏠 گھر</a>
-      <a href="#vehicles">🚗 اپنی گاڑی منتخب کریں</a>
-      <a href="#categories">🛍️ گاڑی کا سامان</a>
-      <a href="#hot">🔥 Hot Items</a>
-      <a href="#deals">🎁 خاص ڈیلز</a>
-      <a href="#build">🧰 اپنی ڈیل بنائیں</a>
-      <a href="#contact">📞 رابطہ کریں</a>
+
+      <a href="#vehicles">
+        🚗 اپنی گاڑی منتخب کریں
+      </a>
+
+      <a href="#categories">
+        🛍️ گاڑی کا سامان
+      </a>
+
+      <a href="#hot">
+        🔥 Hot Items
+      </a>
+
+      <a href="#deals">
+        🎁 خاص ڈیلز
+      </a>
+
+      <a href="#build">
+        🧰 اپنی ڈیل بنائیں
+      </a>
+
+      <a href="#contact">
+        📞 رابطہ کریں
+      </a>
+
     </div>
+
   </nav>
+
 </header>
+
 
 <main id="home">
 
   <!-- HERO -->
+
   <section class="hero">
+
     <div class="container hero-content">
+
       <h1>MANI DECORATION</h1>
-      <p>گاڑیوں کا سامان • Auto Accessories • Custom Work</p>
+
+      <p>
+        گاڑیوں کا سامان • Auto Accessories • Custom Work
+      </p>
+
     </div>
+
   </section>
 
+
   <!-- OFFER -->
+
   <div class="offer-wrap">
+
     <div class="container">
+
       <div class="offer" id="offerBox">
-        <small>🔥 HOT DEAL</small>
-        <h2>اپنی گاڑی کو نیا انداز دیں</h2>
-        <p>خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان</p>
-        <a href="#deals" class="offer-btn">ڈیل دیکھیں</a>
+
+        <small id="offerSmall">
+          🔥 HOT DEAL
+        </small>
+
+        <h2 id="offerTitle">
+          اپنی گاڑی کو نیا انداز دیں
+        </h2>
+
+        <p id="offerText">
+          خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان
+        </p>
+
+        <a href="#deals" class="offer-btn">
+          ڈیل دیکھیں
+        </a>
+
       </div>
+
     </div>
+
   </div>
+
 
   <!-- TICKER -->
+
   <div class="ticker">
+
     <div class="ticker-track">
-      🔥 Hot Items &nbsp;&nbsp; | &nbsp;&nbsp;
-      ⭐ Best Sellers &nbsp;&nbsp; | &nbsp;&nbsp;
-      🎁 Special Deals &nbsp;&nbsp; | &nbsp;&nbsp;
-      📦 Bulk Orders Welcome &nbsp;&nbsp; | &nbsp;&nbsp;
+
+      🔥 Hot Items
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+
+      ⭐ Best Sellers
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+
+      🎁 Special Deals
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+
+      📦 Bulk Orders Welcome
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+
       📲 WhatsApp پر آرڈر کریں
+
     </div>
+
   </div>
 
+
   <!-- SEARCH -->
+
   <section>
+
     <div class="container">
+
       <div class="section-title">
-        <h2>اپنی گاڑی کا سامان تلاش کریں</h2>
-        <span>Search</span>
+
+        <h2>
+          اپنی گاڑی کا سامان تلاش کریں
+        </h2>
+
+        <span>
+          Search
+        </span>
+
       </div>
 
+
       <div class="search-box">
+
         <input
           type="search"
           id="searchInput"
           placeholder="Search vehicle or product..."
           oninput="searchProducts()"
         >
-        <button onclick="searchProducts()">🔍</button>
+
+        <button onclick="searchProducts()">
+          🔍
+        </button>
+
       </div>
+
     </div>
+
   </section>
 
+
   <!-- VEHICLES -->
+
   <section id="vehicles">
+
     <div class="container">
+
       <div class="section-title">
-        <h2>اپنی گاڑی منتخب کریں</h2>
-        <span>Vehicles</span>
+
+        <h2>
+          اپنی گاڑی منتخب کریں
+        </h2>
+
+        <span>
+          Vehicles
+        </span>
+
       </div>
+
 
       <div class="vehicle-scroll">
 
-        <div class="vehicle" onclick="vehicleSearch('Suzuki Carry')">
-          <div class="vehicle-img">SUZUKI CARRY</div>
-          <strong>Suzuki Carry</strong>
-          <small>کیری ڈبہ</small>
+
+        <div
+          class="vehicle"
+          onclick="vehicleSearch('Suzuki Carry')"
+        >
+
+          <div class="vehicle-img">
+            SUZUKI CARRY
+          </div>
+
+          <strong>
+            Suzuki Carry
+          </strong>
+
+          <small>
+            کیری ڈبہ
+          </small>
+
         </div>
 
-        <div class="vehicle" onclick="vehicleSearch('Shahzore')">
-          <div class="vehicle-img">SHAHZORE</div>
-          <strong>Shahzore</strong>
-          <small>شہزور</small>
+
+        <div
+          class="vehicle"
+          onclick="vehicleSearch('Shahzore')"
+        >
+
+          <div class="vehicle-img">
+            SHAHZORE
+          </div>
+
+          <strong>
+            Shahzore
+          </strong>
+
+          <small>
+            شہزور
+          </small>
+
         </div>
 
-        <div class="vehicle" onclick="vehicleSearch('Hyundai Porter')">
-          <div class="vehicle-img">PORTER</div>
-          <strong>Hyundai Porter</strong>
-          <small>پورٹر</small>
+
+        <div
+          class="vehicle"
+          onclick="vehicleSearch('Hyundai Porter')"
+        >
+
+          <div class="vehicle-img">
+            PORTER
+          </div>
+
+          <strong>
+            Hyundai Porter
+          </strong>
+
+          <small>
+            پورٹر
+          </small>
+
         </div>
 
-        <div class="vehicle" onclick="vehicleSearch('JAC X200')">
-          <div class="vehicle-img">JAC X200</div>
-          <strong>JAC X200</strong>
-          <small>JAC</small>
+
+        <div
+          class="vehicle"
+          onclick="vehicleSearch('JAC X200')"
+        >
+
+          <div class="vehicle-img">
+            JAC X200
+          </div>
+
+          <strong>
+            JAC X200
+          </strong>
+
+          <small>
+            JAC
+          </small>
+
         </div>
 
-        <div class="vehicle" onclick="vehicleSearch('Other')">
-          <div class="vehicle-img">OTHER</div>
-          <strong>Other Vehicles</strong>
-          <small>دیگر گاڑیاں</small>
+
+        <div
+          class="vehicle"
+          onclick="vehicleSearch('Other')"
+        >
+
+          <div class="vehicle-img">
+            OTHER
+          </div>
+
+          <strong>
+            Other Vehicles
+          </strong>
+
+          <small>
+            دیگر گاڑیاں
+          </small>
+
         </div>
+
 
       </div>
+
     </div>
+
   </section>
 
+
   <!-- CATEGORIES -->
+
   <section id="categories">
+
     <div class="container">
+
       <div class="section-title">
-        <h2>گاڑی کا سامان</h2>
-        <span>Auto Accessories</span>
+
+        <h2>
+          گاڑی کا سامان
+        </h2>
+
+        <span>
+          Auto Accessories
+        </span>
+
       </div>
+
 
       <div class="category-grid">
 
-        <a href="#hot" class="category">
-          <div class="category-icon">💺</div>
-          <strong>سیٹ کور</strong>
-          <small>Seat Covers</small>
-        </a>
 
         <a href="#hot" class="category">
-          <div class="category-icon">🧩</div>
-          <strong>میٹ</strong>
-          <small>Floor Mats</small>
-        </a>
 
-        <a href="#hot" class="category">
-          <div class="category-icon">✨</div>
-          <strong>گاڑی کی سجاوٹ</strong>
-          <small>Auto Decoration</small>
-        </a>
-
-        <a href="#hot" class="category">
-          <div class="category-icon">🧴</div>
-          <strong>صفائی کا سامان</strong>
-          <small>Car Care</small>
-        </a>
-
-        <a href="#hot" class="category">
-          <div class="category-icon">🔧</div>
-          <strong>گاڑی کے پارٹس</strong>
-          <small>Auto Parts</small>
-        </a>
-
-        <a href="#build" class="category">
-          <div class="category-icon">🛠️</div>
-          <strong>کسٹم کام</strong>
-          <small>Custom Work</small>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- HOT PRODUCTS -->
-  <section id="hot">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>🔥 Hot Items</h2>
-        <span>Best Sellers</span>
-      </div>
-
-      <div class="product-grid" id="productGrid">
-
-        <div class="product" data-name="Seat Cover Suzuki Carry">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">BEST SELLER</span>
-            <h3>Suzuki Carry Seat Cover</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
+          <div class="category-icon">
+            💺
           </div>
-        </div>
 
-        <div class="product" data-name="Floor Mat Suzuki Carry Shahzore Porter JAC">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">HOT ITEM</span>
-            <h3>Vehicle Floor Mat</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
-
-        <div class="product" data-name="Dashboard Polish 7CF">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">HOT SELLING</span>
-            <h3>7CF Dashboard Polish</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%207CF%20Dashboard%20Polish%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
-
-        <div class="product" data-name="Microfiber Towel Cleaning">
-          <div class="product-img">PRODUCT IMAGE</div>
-          <div class="product-info">
-            <span class="tag">POPULAR</span>
-            <h3>Microfiber Towel</h3>
-            <div class="price">PKR —</div>
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Microfiber%20Towel%20ke%20bare%20mein%20maloomat%20chahiye."
-              target="_blank"
-            >
-              WhatsApp پر آرڈر
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DEALS -->
-  <section id="deals">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>🎁 خاص ڈیلز</h2>
-        <span>Special Deals</span>
-      </div>
-
-      <div class="deal-grid">
-
-        <div class="deal">
-          <h3>Suzuki Carry Decoration Deal</h3>
-          <p>سیٹ کور + میٹ + صفائی/کار کیئر اور دوسری منتخب چیزیں</p>
-          <div class="deal-price">PKR —</div>
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-          >
-            Deal کی معلومات WhatsApp پر
-          </a>
-        </div>
-
-        <div class="deal">
-          <h3>Shahzore / Porter / JAC Deal</h3>
-          <p>ان گاڑیوں کے مشترکہ سامان کے لیے خصوصی package تیار کیا جا سکتا ہے</p>
-          <div class="deal-price">PKR —</div>
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Shahzore%20Porter%20JAC%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-          >
-            Deal کی معلومات WhatsApp پر
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BUILD DEAL -->
-  <section id="build">
-    <div class="container">
-
-      <div class="build">
-        <h2>🧰 اپنی ڈیل خود بنائیں</h2>
-
-        <p>
-          اپنی پسند کی کئی چیزیں منتخب کریں۔
-          کم یا زیادہ quantity کے مطابق ہم آپ کے لیے package/deal تیار کریں گے۔
-        </p>
-
-        <a
-          class="build-btn"
-          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20main%20apni%20gaari%20ke%20liye%20apni%20deal%20banwana%20chahta%20hoon."
-          target="_blank"
-        >
-          WhatsApp پر ڈیل بنائیں
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="container">
-    <h3>MANI DECORATION</h3>
-    <p>Auto Decoration • Accessories • Car Care • Custom Work</p>
-    <p>📲 WhatsApp: +92 312 9542995</p>
-    <p>© 2026 MANI DECORATION</p>
-  </div>
-</footer>
-
-<a
-  class="whatsapp"
-  href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20MANI%20DECORATION%20ke%20products%20ke%20bare%20mein%20maloomat%20chahiye."
-  target="_blank"
->
-  📲 WhatsApp
-</a>
-
-<script>
-
-  /* MENU */
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("show");
-  }
-
-  /* SEARCH */
-  function searchProducts() {
-
-    const input = document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-    const products = document.querySelectorAll(".product");
-
-    products.forEach(product => {
-
-      const name = product
-        .getAttribute("data-name")
-        .toLowerCase();
-
-      if (input === "" || name.includes(input)) {
-        product.style.display = "";
-      } else {
-        product.style.display = "none";
-      }
-
-    });
-
-    document.getElementById("hot").scrollIntoView({
-      behavior: "smooth"
-    });
-  }
-
-  /* VEHICLE SEARCH */
-  function vehicleSearch(vehicle) {
-
-    document.getElementById("searchInput").value = vehicle;
-
-    searchProducts();
-
-  }
-
-  /* OFFER SLIDER */
-  const offers = [
-
-    {
-      small: "🔥 HOT DEAL",
-      title: "اپنی گاڑی کو نیا انداز دیں",
-      text: "سیٹ کور، میٹ، سجاوٹ اور گاڑیوں کا مکمل سامان"
-    },
-
-    {
-      small: "⭐ BEST SELLER",
-      title: "ہمارے مقبول سامان دیکھیں",
-      text: "وہ چیزیں جو گاہک سب سے زیادہ پسند کرتے ہیں"
-    },
-
-    {
-      small: "🎁 SPECIAL DEAL",
-      title: "زیادہ سامان، بہتر ڈیل",
-      text: "Bulk order کے لیے WhatsApp پر رابطہ کریں"
-    }
-
-  ];
-
-  let offerIndex = 0;
-
-  setInterval(() => {
-
-    offerIndex++;
-
-    if (offerIndex >= offers.length) {
-      offerIndex = 0;
-    }
-
-    const offer = offers[offerIndex];
-
-    document.getElementById("offerBox").innerHTML = `
-      <small>${offer.small}</small>
-      <h2>${offer.title}</h2>
-      <p>${offer.text}</p>
-      <a href="#deals" class="offer-btn">ڈیل دیکھیں</a>
-    `;
-
-  }, 4500);
-
-</script>
-
-</body>
-</html>
+          <strong>
+           
