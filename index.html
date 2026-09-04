@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MANI DECORATION | Auto Decoration & Accessories</title>
+
+  <meta name="description"
+        content="MANI DECORATION - Professional car decoration, seat covers, floor mats, dashboard accessories and car care products.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: #090909;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #f5c400;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #f5c400;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
+        radial-gradient(circle at center, #333 0%, #111 45%, #050505 100%);
+      text-align: center;
+    }
+
+    .hero-content {
+      width: 100%;
+      padding: 80px 0;
+    }
+
+    .hero small {
+      color: #f5c400;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 9vw, 80px);
+      margin: 15px 0;
+      line-height: 1;
+    }
+
+    .hero h1 span {
+      color: #f5c400;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #ccc;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #f5c400;
+      color: #000;
+    }
+
+    .btn-secondary {
+      border: 1px solid #555;
+      background: #151515;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .section-title span {
+      color: #f5c400;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid #272727;
+      padding: 30px 22px;
+      border-radius: 10px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #f5c400;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .about {
+      background: #111;
+    }
+
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box p {
+      color: #bbb;
+      margin-top: 15px;
+    }
+
+    .cta {
+      background: #f5c400;
+      color: #000;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+    }
+
+    .cta .btn {
+      background: #000;
+      color: #fff;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 30px 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      nav {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      MANI <span>DECORATION</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <small>AUTO DECORATION • ACCESSORIES • CAR CARE</small>
+
+      <h1>
+        MANI <span>DECORATION</span>
+      </h1>
+
+      <p>
+        Professional car decoration, premium accessories,
+        seat covers, floor mats and car care products.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="#shop">Explore Products</a>
+        <a class="btn btn-secondary" href="#contact">Contact Us</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our <span>Services</span></h2>
+        <p>Professional solutions for your car interior</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">🚗</div>
+          <h3>Car Decoration</h3>
+          <p>
+            Professional interior decoration and customization
+            for different vehicle models.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💺</div>
+          <h3>Seat Covers</h3>
+          <p>
+            Stylish and durable seat covers with professional
+            fitting and finishing.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✨</div>
+          <h3>Car Care</h3>
+          <p>
+            Car cleaning and care products for a clean,
+            fresh and premium interior.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="shop">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Featured <span>Products</span></h2>
+        <p>Our product categories</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">💺</div>
+          <h3>Seat Covers</h3>
+          <p>Premium car seat covers for different vehicles.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⬛</div>
+          <h3>Floor Mats</h3>
+          <p>Quality floor mats designed for your vehicle.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧴</div>
+          <h3>Cleaning Products</h3>
+          <p>Dashboard polish, microfiber towels and car care products.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-box">
+
+        <div class="section-title">
+          <h2>About <span>MANI DECORATION</span></h2>
+        </div>
+
+        <p>
+          MANI DECORATION is focused on professional car decoration,
+          interior accessories and quality car care products.
+        </p>
+
+        <p>
+          Our goal is to give every vehicle a clean, stylish
+          and premium interior look.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta" id="contact">
+
+    <div class="container">
+
+      <h2>Make Your Car Look Better</h2>
+
+      <p>
+        Contact MANI DECORATION for products and services.
+      </p>
+
+      <a class="btn" href="https://wa.me/923000000000">
+        WhatsApp Us
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 MANI DECORATION. All Rights Reserved.
+</footer>
+
+</body>
+</html>
