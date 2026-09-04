@@ -27,11 +27,6 @@
       color: inherit;
     }
 
-    button,
-    input {
-      font-family: inherit;
-    }
-
     .container {
       width: 92%;
       max-width: 1200px;
@@ -59,40 +54,36 @@
       gap: 12px;
     }
 
-    /* MD LOGO */
-
     .brand {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       direction: ltr;
     }
 
     .brand-icon {
-      width: 42px;
-      height: 42px;
+      width: 43px;
+      height: 43px;
+      border: 2px solid #d71920;
+      border-radius: 10px;
+      background: #111;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(145deg, #e51c23, #a90f14);
-      color: white;
-      border: 2px solid white;
-      border-radius: 9px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 900;
       letter-spacing: -1px;
-      box-shadow:
-        0 4px 0 #6e080c,
-        0 7px 14px rgba(0,0,0,.35);
+      box-shadow: 0 0 0 2px #111, 0 0 12px rgba(215,25,32,.25);
     }
 
     .brand-name {
-      color: white;
-      font-size: 19px;
+      font-size: 21px;
       font-weight: 900;
-      letter-spacing: .5px;
+      letter-spacing: 1px;
+      color: white;
+      text-shadow: 2px 2px 0 #d71920;
       white-space: nowrap;
-      text-shadow: 1px 2px 0 #8f0f14;
     }
 
     .menu-btn {
@@ -150,6 +141,7 @@
       direction: ltr;
       text-shadow: 3px 3px 0 #d71920;
       margin-bottom: 5px;
+      letter-spacing: 1px;
     }
 
     .hero p {
@@ -177,7 +169,6 @@
       justify-content: center;
       text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,.25);
-      transition: .25s ease;
     }
 
     .offer small {
@@ -206,7 +197,7 @@
     }
 
     /* =========================
-       TICKER
+       MOVING STRIP
     ========================== */
 
     .ticker {
@@ -321,11 +312,7 @@
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,.07);
       cursor: pointer;
-      transition: .2s ease;
-    }
-
-    .vehicle:active {
-      transform: scale(.97);
+      flex-shrink: 0;
     }
 
     .vehicle-img {
@@ -369,11 +356,6 @@
       text-align: center;
       border: 1px solid #e2e2e2;
       box-shadow: 0 4px 12px rgba(0,0,0,.06);
-      transition: .2s ease;
-    }
-
-    .category:active {
-      transform: scale(.97);
     }
 
     .category-icon {
@@ -452,42 +434,28 @@
       margin: 4px 0;
     }
 
-    /* =========================
-       WHATSAPP PRODUCT BUTTON
-    ========================== */
-
     .order-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      display: block;
       text-align: center;
       background: #111;
       color: white;
-      padding: 9px 5px;
+      padding: 8px 5px;
       border-radius: 8px;
       font-size: 12px;
       margin-top: 7px;
-      border: 1px solid #222;
-      transition: .2s ease;
+      transition: .2s;
     }
 
     .order-btn:hover {
-      background: #128c7e;
+      background: #d71920;
     }
 
     .wa-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #25D366;
-      color: white;
-      font-size: 11px;
-      font-weight: bold;
+      color: #25D366;
+      font-size: 15px;
+      margin-left: 4px;
       direction: ltr;
+      display: inline-block;
     }
 
     /* =========================
@@ -548,19 +516,20 @@
     }
 
     .build-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      background: #25D366;
-      color: #071b0d;
+      display: inline-block;
+      background: #d71920;
+      color: white;
       padding: 10px 22px;
       border-radius: 9px;
       font-weight: bold;
     }
 
+    .build-btn .wa-icon {
+      color: white;
+    }
+
     /* =========================
-       GENERAL WHATSAPP
+       WHATSAPP FLOATING BUTTON
     ========================== */
 
     .whatsapp {
@@ -568,21 +537,18 @@
       bottom: 17px;
       left: 17px;
       z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      background: #25D366;
-      color: #071b0d;
-      border: 2px solid white;
-      padding: 10px 15px;
+      background: #111;
+      color: white;
+      border: 2px solid #25D366;
+      padding: 11px 15px;
       border-radius: 30px;
       font-weight: bold;
       box-shadow: 0 6px 20px rgba(0,0,0,.3);
     }
 
     .whatsapp .wa-icon {
-      background: white;
-      color: #128c7e;
+      color: #25D366;
+      font-size: 18px;
     }
 
     /* =========================
@@ -614,15 +580,6 @@
 
     @media (min-width: 700px) {
 
-      .brand-icon {
-        width: 46px;
-        height: 46px;
-      }
-
-      .brand-name {
-        font-size: 22px;
-      }
-
       .hero h1 {
         font-size: 45px;
       }
@@ -641,6 +598,10 @@
 
       .product-img {
         height: 175px;
+      }
+
+      .brand-name {
+        font-size: 23px;
       }
     }
   </style>
@@ -702,7 +663,10 @@
 
 <main id="home">
 
-  <!-- HERO -->
+
+  <!-- =========================
+       HERO
+  ========================== -->
 
   <section class="hero">
 
@@ -719,7 +683,9 @@
   </section>
 
 
-  <!-- OFFER -->
+  <!-- =========================
+       OFFER
+  ========================== -->
 
   <div class="offer-wrap">
 
@@ -727,15 +693,13 @@
 
       <div class="offer" id="offerBox">
 
-        <small id="offerSmall">
-          🔥 HOT DEAL
-        </small>
+        <small>🔥 HOT DEAL</small>
 
-        <h2 id="offerTitle">
+        <h2>
           اپنی گاڑی کو نیا انداز دیں
         </h2>
 
-        <p id="offerText">
+        <p>
           خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان
         </p>
 
@@ -750,7 +714,9 @@
   </div>
 
 
-  <!-- TICKER -->
+  <!-- =========================
+       TICKER
+  ========================== -->
 
   <div class="ticker">
 
@@ -775,7 +741,9 @@
   </div>
 
 
-  <!-- SEARCH -->
+  <!-- =========================
+       SEARCH
+  ========================== -->
 
   <section>
 
@@ -792,7 +760,6 @@
         </span>
 
       </div>
-
 
       <div class="search-box">
 
@@ -814,7 +781,9 @@
   </section>
 
 
-  <!-- VEHICLES -->
+  <!-- =========================
+       VEHICLES
+  ========================== -->
 
   <section id="vehicles">
 
@@ -943,7 +912,9 @@
   </section>
 
 
-  <!-- CATEGORIES -->
+  <!-- =========================
+       CATEGORIES
+  ========================== -->
 
   <section id="categories">
 
@@ -1074,7 +1045,9 @@
   </section>
 
 
-  <!-- HOT PRODUCTS -->
+  <!-- =========================
+       HOT PRODUCTS
+  ========================== -->
 
   <section id="hot">
 
@@ -1124,17 +1097,11 @@
 
             <a
               class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye.%20Price%20aur%20available%20designs%20bata%20dain."
+              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye."
               target="_blank"
-              rel="noopener"
             >
-
-              <span class="wa-icon">
-                WA
-              </span>
-
-              WhatsApp پر معلومات
-
+              <span class="wa-icon">●</span>
+              WhatsApp پر آرڈر
             </a>
 
           </div>
@@ -1169,17 +1136,11 @@
 
             <a
               class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Vehicle%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye.%20Price%20aur%20meri%20gaari%20ke%20mutabiq%20available%20mat%20bata%20dain."
+              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Vehicle%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye."
               target="_blank"
-              rel="noopener"
             >
-
-              <span class="wa-icon">
-                WA
-              </span>
-
-              WhatsApp پر معلومات
-
+              <span class="wa-icon">●</span>
+              WhatsApp پر آرڈر
             </a>
 
           </div>
@@ -1191,458 +1152,4 @@
 
         <div
           class="product"
-          data-name="Dashboard Polish 7CF"
-        >
-
-          <div class="product-img">
-            PRODUCT IMAGE
-          </div>
-
-          <div class="product-info">
-
-            <span class="tag">
-              HOT SELLING
-            </span>
-
-            <h3>
-              7CF Dashboard Polish
-            </h3>
-
-            <div class="price">
-              PKR —
-            </div>
-
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%207CF%20Dashboard%20Polish%20ke%20bare%20mein%20maloomat%20chahiye.%20Price%20aur%20quantity%20bata%20dain."
-              target="_blank"
-              rel="noopener"
-            >
-
-              <span class="wa-icon">
-                WA
-              </span>
-
-              WhatsApp پر معلومات
-
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-
-        <div
-          class="product"
-          data-name="Microfiber Towel Cleaning"
-        >
-
-          <div class="product-img">
-            PRODUCT IMAGE
-          </div>
-
-          <div class="product-info">
-
-            <span class="tag">
-              POPULAR
-            </span>
-
-            <h3>
-              Microfiber Towel
-            </h3>
-
-            <div class="price">
-              PKR —
-            </div>
-
-            <a
-              class="order-btn"
-              href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Microfiber%20Towel%20ke%20bare%20mein%20maloomat%20chahiye.%20Price%20aur%20quantity%20bata%20dain."
-              target="_blank"
-              rel="noopener"
-            >
-
-              <span class="wa-icon">
-                WA
-              </span>
-
-              WhatsApp پر معلومات
-
-            </a>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- DEALS -->
-
-  <section id="deals">
-
-    <div class="container">
-
-
-      <div class="section-title">
-
-        <h2>
-          🎁 خاص ڈیلز
-        </h2>
-
-        <span>
-          Special Deals
-        </span>
-
-      </div>
-
-
-      <div class="deal-grid">
-
-
-        <!-- DEAL 1 -->
-
-        <div class="deal">
-
-          <h3>
-            Suzuki Carry Decoration Deal
-          </h3>
-
-          <p>
-            سیٹ کور + میٹ + صفائی/کار کیئر اور دوسری منتخب چیزیں
-          </p>
-
-          <div class="deal-price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye.%20Package%20mein%20kya%20kya%20items%20hain%20aur%20price%20kya%20hai%3F"
-            target="_blank"
-            rel="noopener"
-          >
-
-            <span class="wa-icon">
-              WA
-            </span>
-
-            Deal کی معلومات WhatsApp پر
-
-          </a>
-
-        </div>
-
-
-        <!-- DEAL 2 -->
-
-        <div class="deal">
-
-          <h3>
-            Shahzore / Porter / JAC Deal
-          </h3>
-
-          <p>
-            ان گاڑیوں کے مشترکہ سامان کے لیے خصوصی package تیار کیا جا سکتا ہے
-          </p>
-
-          <div class="deal-price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Shahzore%20%2F%20Hyundai%20Porter%20%2F%20JAC%20X200%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye.%20Package%20aur%20price%20bata%20dain."
-            target="_blank"
-            rel="noopener"
-          >
-
-            <span class="wa-icon">
-              WA
-            </span>
-
-            Deal کی معلومات WhatsApp پر
-
-          </a>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- BUILD DEAL -->
-
-  <section id="build">
-
-    <div class="container">
-
-      <div class="build">
-
-        <h2>
-          🧰 اپنی ڈیل خود بنائیں
-        </h2>
-
-        <p>
-          اپنی پسند کی کئی چیزیں منتخب کریں۔
-          کم یا زیادہ quantity کے مطابق ہم آپ کے لیے package/deal تیار کریں گے۔
-        </p>
-
-        <a
-          class="build-btn"
-          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20main%20apni%20gaari%20ke%20liye%20apni%20deal%20banwana%20chahta%20hoon.%20Mujhe%20items%20aur%20package%20ke%20bare%20mein%20guide%20kar%20dain."
-          target="_blank"
-          rel="noopener"
-        >
-
-          <span class="wa-icon">
-            WA
-          </span>
-
-          WhatsApp پر ڈیل بنائیں
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer id="contact">
-
-  <div class="container">
-
-    <h3>
-      MANI DECORATION
-    </h3>
-
-    <p>
-      Auto Decoration • Accessories • Car Care • Custom Work
-    </p>
-
-    <p>
-      📲 WhatsApp: +92 312 9542995
-    </p>
-
-    <p>
-      © 2026 MANI DECORATION
-    </p>
-
-  </div>
-
-</footer>
-
-
-<!-- GENERAL WHATSAPP -->
-
-<a
-  class="whatsapp"
-  href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20MANI%20DECORATION%20ke%20products%20ke%20bare%20mein%20maloomat%20chahiye.%20Barah-e-karam%20guide%20kar%20dain."
-  target="_blank"
-  rel="noopener"
->
-
-  <span class="wa-icon">
-    WA
-  </span>
-
-  WhatsApp
-
-</a>
-
-
-<script>
-
-  /* =========================
-     MENU
-  ========================== */
-
-  function toggleMenu() {
-
-    document
-      .getElementById("menu")
-      .classList
-      .toggle("show");
-
-  }
-
-
-  /* =========================
-     SEARCH
-  ========================== */
-
-  function searchProducts() {
-
-    const input = document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
-    const products =
-      document.querySelectorAll(".product");
-
-
-    products.forEach(product => {
-
-      const name =
-        product
-        .getAttribute("data-name")
-        .toLowerCase();
-
-
-      if (
-        input === "" ||
-        name.includes(input)
-      ) {
-
-        product.style.display = "";
-
-      } else {
-
-        product.style.display = "none";
-
-      }
-
-    });
-
-
-    document
-      .getElementById("hot")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-
-  /* =========================
-     VEHICLE SEARCH
-  ========================== */
-
-  function vehicleSearch(vehicle) {
-
-    document
-      .getElementById("searchInput")
-      .value = vehicle;
-
-    searchProducts();
-
-  }
-
-
-  /* =========================
-     OFFER SLIDER
-  ========================== */
-
-  const offers = [
-
-    {
-      small: "🔥 HOT DEAL",
-      title: "اپنی گاڑی کو نیا انداز دیں",
-      text: "خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان",
-      link: "#deals"
-    },
-
-    {
-      small: "⭐ BEST SELLERS",
-      title: "مشہور اور پسندیدہ سامان",
-      text: "سیٹ کور، میٹ، کار کیئر اور دیگر Auto Accessories",
-      link: "#hot"
-    },
-
-    {
-      small: "📦 BULK ORDERS",
-      title: "زیادہ سامان؟ اپنی Deal بنائیں",
-      text: "Quantity کے مطابق package اور special deal کے لیے WhatsApp کریں",
-      link: "#build"
-    }
-
-  ];
-
-
-  let offerIndex = 0;
-
-
-  function showOffer() {
-
-    const offer =
-      offers[offerIndex];
-
-    const small =
-      document.getElementById("offerSmall");
-
-    const title =
-      document.getElementById("offerTitle");
-
-    const text =
-      document.getElementById("offerText");
-
-
-    if (small) {
-      small.textContent =
-        offer.small;
-    }
-
-    if (title) {
-      title.textContent =
-        offer.title;
-    }
-
-    if (text) {
-      text.textContent =
-        offer.text;
-    }
-
-    const button =
-      document.querySelector(".offer-btn");
-
-    if (button) {
-      button.href =
-        offer.link;
-    }
-
-  }
-
-
-  showOffer();
-
-
-  setInterval(function() {
-
-    offerIndex++;
-
-    if (
-      offerIndex >= offers.length
-    ) {
-
-      offerIndex = 0;
-
-    }
-
-    showOffer();
-
-  }, 4000);
-
-
-</script>
-
-</body>
-</html>
+          data-name="Dashboard Po
