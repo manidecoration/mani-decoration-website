@@ -935,19 +935,17 @@ async function loadProducts(){
 
 
   if(error){
-
-    list.innerHTML =
-      "<p style='color:#d71920'>Products load نہیں ہو سکے۔</p>";
-
-    showMessage(
-      "error",
-      error.message
-    );
-
-    return;
-
+  list.innerHTML = `
+    <div style="color:#d71920;line-height:1.8">
+      <strong>Products load نہیں ہو سکے۔</strong><br>
+      ${escapeHTML(error.message || "Unknown error")}<br>
+      ${escapeHTML(error.details || "")}<br>
+      ${escapeHTML(error.hint || "")}
+    </div>`;
+  showMessage("error", error.message || "Products load نہیں ہو سکے۔");
+  console.error("Supabase products error:", error);
+  return;
   }
-
 
   if(!data || data.length===0){
 
