@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<!DOCTYPE html><html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MANI DECORATION - Product Manager</title>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MANI DECORATION - Product Manager</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
   font-family:Arial,"Noto Sans",sans-serif;
   background:#f3f3f3;
   color:#111;
-  padding:20px;
+  padding:15px;
 }
 
 .container{
-  max-width:600px;
+  max-width:700px;
   margin:auto;
 }
 
@@ -28,11 +27,10 @@ body{
   border-radius:15px;
   border-bottom:4px solid #d71920;
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .header h1{
-  color:white;
   font-size:25px;
 }
 
@@ -89,14 +87,59 @@ button{
   margin-top:10px;
 }
 
+.login-btn,
 .add-btn{
   background:#d71920;
   color:white;
 }
 
+.logout-btn,
 .clear-btn{
   background:#111;
   color:white;
+}
+
+.edit-btn{
+  background:#333;
+  color:white;
+}
+
+.delete-btn{
+  background:#d71920;
+  color:white;
+}
+
+.hide-btn{
+  background:#777;
+  color:white;
+}
+
+.status{
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:12px;
+  text-align:center;
+  display:none;
+  font-size:14px;
+}
+
+.success{
+  background:#e8f8ed;
+  color:#176b32;
+}
+
+.error{
+  background:#fdeaea;
+  color:#a40000;
+}
+
+.login-box{
+  max-width:450px;
+  margin:30px auto;
+}
+
+.dashboard{
+  display:none;
 }
 
 .product{
@@ -104,125 +147,164 @@ button{
   border-radius:12px;
   padding:12px;
   margin-top:10px;
+  background:#fff;
+}
+
+.product-row{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.product-image{
+  width:85px;
+  height:85px;
+  border-radius:10px;
+  object-fit:cover;
+  background:#eee;
+  flex-shrink:0;
+}
+
+.product-details{
+  flex:1;
 }
 
 .product h3{
   margin-bottom:4px;
+  font-size:16px;
 }
 
-.product .price{
+.price{
   color:#d71920;
   font-weight:bold;
+  direction:ltr;
+  text-align:right;
 }
 
-.product small{
+.meta{
   color:#666;
+  font-size:12px;
+  margin-top:3px;
 }
 
-.delete{
-  background:#d71920;
-  color:white;
-  padding:8px;
-  margin-top:8px;
+.inactive{
+  opacity:.55;
 }
 
-.success{
-  display:none;
-  background:#e8f8ed;
-  color:#176b32;
-  padding:10px;
-  border-radius:8px;
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
   margin-top:10px;
-  text-align:center;
 }
-</style>
-</head>
 
-<body>
+.actions button{
+  margin-top:0;
+  padding:9px;
+  font-size:13px;
+}
 
-<div class="container">
+.preview{
+  width:100%;
+  max-height:180px;
+  object-fit:contain;
+  border-radius:10px;
+  background:#eee;
+  margin-top:10px;
+  display:none;
+}
 
-  <div class="header">
-    <h1>MANI DECORATION</h1>
-    <p>Product Manager</p>
-  </div>
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
 
-  <div class="card">
+.topbar button{
+  width:auto;
+  padding:9px 14px;
+  margin:0;
+}
 
-    <h2>➕ نیا Product شامل کریں</h2>
+.editing{
+  border:2px solid #d71920;
+}
 
-    <label>Product Name</label>
-    <input
-      type="text"
-      id="name"
-      placeholder="مثلاً Microfiber Towel"
-    >
+.cancel-btn{
+  background:#eee;
+  color:#111;
+}
 
-    <label>Price (PKR)</label>
-    <input
-      type="number"
-      id="price"
-      placeholder="مثلاً 400"
-    >
+.file-note{
+  color:#777;
+  font-size:11px;
+  margin-top:5px;
+}
 
-    <label>Category</label>
-    <select id="category">
-      <option value="Car Care">Car Care</option>
-      <option value="Seat Covers">Seat Covers</option>
-      <option value="Floor Mats">Floor Mats</option>
-      <option value="Auto Decoration">Auto Decoration</option>
-      <option value="Auto Parts">Auto Parts</option>
-      <option value="Other">Other</option>
-    </select>
+@media(max-width:500px){
+  .product-row{
+    align-items:center;
+  }
 
-    <label>Product Image File Name</label>
-    <input
-      type="text"
-      id="image"
-      placeholder="مثلاً microfiber.png"
-    >
+  .product-image{
+    width:70px;
+    height:70px;
+  }
+}
+</style></head><body><div class="container">  <!-- LOGIN -->  <div class="login-box" id="loginBox"><div class="header">
+  <h1>MANI DECORATION</h1>
+  <p>Admin Product Manager</p>
+</div>
 
-    <label>Description</label>
-    <textarea
-      id="description"
-      placeholder="Product کی تفصیل یہاں لکھیں..."
-    ></textarea>
+<div class="card">
 
-    <label>Tag</label>
-    <input
-      type="text"
-      id="tag"
-      placeholder="مثلاً POPULAR"
-    >
+  <h2>🔐 Admin Login</h2>
 
-    <button
-      class="add-btn"
-      onclick="addProduct()"
-    >
-      Product محفوظ کریں
-    </button>
+  <div class="status error" id="loginError"></div>
 
-    <div
-      class="success"
-      id="success"
-    >
-      ✅ Product کامیابی سے محفوظ ہو گیا
+  <label>Email</label>
+
+  <input
+    type="email"
+    id="loginEmail"
+    placeholder="Admin Email"
+    autocomplete="email"
+  >
+
+  <label>Password</label>
+
+  <input
+    type="password"
+    id="loginPassword"
+    placeholder="Password"
+    autocomplete="current-password"
+  >
+
+  <button
+    class="login-btn"
+    onclick="login()"
+  >
+    Login
+  </button>
+
+</div>
+
+  </div>  <!-- DASHBOARD -->  <div class="dashboard" id="dashboard"><div class="header">
+
+  <div class="topbar">
+
+    <div>
+      <h1>MANI DECORATION</h1>
+      <p>Product Manager</p>
     </div>
 
-  </div>
-
-
-  <div class="card">
-
-    <h2>📦 میرے Products</h2>
-
-    <div id="productList"></div>
-
     <button
-      class="clear-btn"
-      onclick="clearProducts()"
+      class="logout-btn"
+      onclick="logout()"
     >
-      تمام Products صاف کریں
+      Logout
     </button>
 
   </div>
@@ -230,28 +312,450 @@ button{
 </div>
 
 
-<script>
+<div
+  class="status success"
+  id="success"
+></div>
 
-function getProducts(){
+<div
+  class="status error"
+  id="error"
+></div>
 
-  return JSON.parse(
-    localStorage.getItem("maniProducts") || "[]"
+
+<!-- PRODUCT FORM -->
+
+<div
+  class="card"
+  id="formCard"
+>
+
+  <h2 id="formTitle">
+    ➕ نیا Product شامل کریں
+  </h2>
+
+  <label>Product Name</label>
+
+  <input
+    type="text"
+    id="name"
+    placeholder="مثلاً Microfiber Towel"
+  >
+
+
+  <label>Price (PKR)</label>
+
+  <input
+    type="number"
+    id="price"
+    placeholder="مثلاً 400"
+    min="0"
+    step="0.01"
+  >
+
+
+  <label>Category</label>
+
+  <select id="category">
+
+    <option value="Car Care">
+      Car Care
+    </option>
+
+    <option value="Seat Covers">
+      Seat Covers
+    </option>
+
+    <option value="Floor Mats">
+      Floor Mats
+    </option>
+
+    <option value="Auto Decoration">
+      Auto Decoration
+    </option>
+
+    <option value="Auto Parts">
+      Auto Parts
+    </option>
+
+    <option value="Custom Work">
+      Custom Work
+    </option>
+
+    <option value="Other">
+      Other
+    </option>
+
+  </select>
+
+
+  <label>Vehicle</label>
+
+  <select id="vehicle">
+
+    <option value="All Vehicles">
+      All Vehicles
+    </option>
+
+    <option value="Suzuki Carry">
+      Suzuki Carry
+    </option>
+
+    <option value="Shahzore">
+      Shahzore
+    </option>
+
+    <option value="Hyundai Porter">
+      Hyundai Porter
+    </option>
+
+    <option value="JAC X200">
+      JAC X200
+    </option>
+
+    <option value="Other">
+      Other Vehicles
+    </option>
+
+  </select>
+
+
+  <label>Product Image</label>
+
+  <input
+    type="file"
+    id="imageFile"
+    accept="image/*"
+    onchange="previewImage()"
+  >
+
+  <div class="file-note">
+    تصویر منتخب کریں۔ یہ Supabase میں محفوظ ہوگی۔
+  </div>
+
+  <img
+    id="imagePreview"
+    class="preview"
+    alt="Image Preview"
+  >
+
+
+  <label>Or Image URL</label>
+
+  <input
+    type="url"
+    id="imageUrl"
+    placeholder="https://..."
+  >
+
+
+  <label>Description</label>
+
+  <textarea
+    id="description"
+    placeholder="Product کی تفصیل یہاں لکھیں..."
+  ></textarea>
+
+
+  <label>Tag</label>
+
+  <input
+    type="text"
+    id="tag"
+    placeholder="مثلاً POPULAR"
+  >
+
+
+  <button
+    class="add-btn"
+    id="saveBtn"
+    onclick="saveProduct()"
+  >
+    Product محفوظ کریں
+  </button>
+
+  <button
+    class="cancel-btn"
+    id="cancelBtn"
+    onclick="cancelEdit()"
+    style="display:none"
+  >
+    Edit Cancel کریں
+  </button>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div class="card">
+
+  <h2>
+    📦 میرے Products
+  </h2>
+
+  <div id="productList">
+    Loading...
+  </div>
+
+</div>
+
+  </div></div><script>
+
+/* ================= SUPABASE ================= */
+
+const SUPABASE_URL =
+  "https://dewshygrcafbmowbwpzc.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_GvjDMeEQB19fTjB_pc5D4w_wwVhx3UW";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
   );
+
+
+/* ================= STATE ================= */
+
+let editingId = null;
+
+
+/* ================= HELPERS ================= */
+
+function showMessage(type,message){
+
+  const success =
+    document.getElementById("success");
+
+  const error =
+    document.getElementById("error");
+
+  success.style.display="none";
+  error.style.display="none";
+
+  const box =
+    type === "success" ? success : error;
+
+  box.textContent = message;
+  box.style.display="block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  setTimeout(function(){
+
+    box.style.display="none";
+
+  },3500);
 
 }
 
 
-function saveProducts(products){
+function showLoginError(message){
 
-  localStorage.setItem(
-    "maniProducts",
-    JSON.stringify(products)
-  );
+  const box =
+    document.getElementById("loginError");
+
+  box.textContent = message;
+  box.style.display="block";
 
 }
 
 
-function addProduct(){
+/* ================= LOGIN ================= */
+
+async function login(){
+
+  const email =
+    document.getElementById("loginEmail").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  document.getElementById("loginError").style.display="none";
+
+  if(!email || !password){
+
+    showLoginError(
+      "Email اور Password دونوں لازمی ہیں۔"
+    );
+
+    return;
+
+  }
+
+  try{
+
+    const {data,error} =
+      await supabaseClient.auth.signInWithPassword({
+        email:email,
+        password:password
+      });
+
+    if(error){
+      throw error;
+    }
+
+    if(!data.session){
+
+      throw new Error(
+        "Login session نہیں بنی۔"
+      );
+
+    }
+
+    showDashboard();
+
+    await loadProducts();
+
+  }catch(err){
+
+    showLoginError(
+      err.message || "Login failed."
+    );
+
+  }
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+async function logout(){
+
+  await supabaseClient.auth.signOut();
+
+  document.getElementById("dashboard").style.display="none";
+  document.getElementById("loginBox").style.display="block";
+
+}
+
+
+/* ================= SESSION ================= */
+
+async function checkSession(){
+
+  const {
+    data:{
+      session
+    }
+  } =
+    await supabaseClient.auth.getSession();
+
+  if(session){
+
+    showDashboard();
+
+    await loadProducts();
+
+  }else{
+
+    document.getElementById("loginBox").style.display="block";
+    document.getElementById("dashboard").style.display="none";
+
+  }
+
+}
+
+
+function showDashboard(){
+
+  document.getElementById("loginBox").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+
+}
+
+
+/* ================= IMAGE PREVIEW ================= */
+
+function previewImage(){
+
+  const file =
+    document.getElementById("imageFile").files[0];
+
+  const preview =
+    document.getElementById("imagePreview");
+
+  if(!file){
+
+    preview.style.display="none";
+    return;
+
+  }
+
+  const url =
+    URL.createObjectURL(file);
+
+  preview.src=url;
+  preview.style.display="block";
+
+}
+
+
+/* ================= IMAGE UPLOAD ================= */
+
+async function uploadImage(file){
+
+  if(!file){
+    return null;
+  }
+
+  const safeName =
+    file.name
+      .toLowerCase()
+      .replace(/[^a-z0-9.\-_]/g,"-");
+
+  const fileName =
+    Date.now() +
+    "-" +
+    safeName;
+
+  const filePath =
+    "products/" + fileName;
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .storage
+      .from("product-images")
+      .upload(
+        filePath,
+        file,
+        {
+          cacheControl:"3600",
+          upsert:false
+        }
+      );
+
+
+  if(error){
+    throw error;
+  }
+
+
+  const {
+    data
+  } =
+    supabaseClient
+      .storage
+      .from("product-images")
+      .getPublicUrl(filePath);
+
+
+  return data.publicUrl;
+
+}
+
+
+/* ================= SAVE PRODUCT ================= */
+
+async function saveProduct(){
 
   const name =
     document.getElementById("name").value.trim();
@@ -262,8 +766,8 @@ function addProduct(){
   const category =
     document.getElementById("category").value;
 
-  const image =
-    document.getElementById("image").value.trim();
+  const vehicle =
+    document.getElementById("vehicle").value;
 
   const description =
     document.getElementById("description").value.trim();
@@ -271,72 +775,181 @@ function addProduct(){
   const tag =
     document.getElementById("tag").value.trim();
 
+  const imageUrl =
+    document.getElementById("imageUrl").value.trim();
+
+  const imageFile =
+    document.getElementById("imageFile").files[0];
+
 
   if(!name || !price){
 
-    alert("Product Name اور Price لازمی لکھیں۔");
+    showMessage(
+      "error",
+      "Product Name اور Price لازمی لکھیں۔"
+    );
 
     return;
 
   }
 
 
-  const products = getProducts();
+  const saveBtn =
+    document.getElementById("saveBtn");
+
+  saveBtn.disabled=true;
+
+  saveBtn.textContent =
+    editingId
+      ? "Product Update ہو رہا ہے..."
+      : "Product محفوظ ہو رہا ہے...";
 
 
-  products.push({
+  try{
 
-    id:Date.now(),
-
-    name:name,
-
-    price:price,
-
-    category:category,
-
-    image:image,
-
-    description:description,
-
-    tag:tag
-
-  });
+    let finalImage =
+      imageUrl || null;
 
 
-  saveProducts(products);
+    if(imageFile){
+
+      finalImage =
+        await uploadImage(imageFile);
+
+    }
 
 
-  document.getElementById("name").value="";
-  document.getElementById("price").value="";
-  document.getElementById("image").value="";
-  document.getElementById("description").value="";
-  document.getElementById("tag").value="";
+    const productData = {
+
+      name:name,
+
+      price:Number(price),
+
+      category:category,
+
+      vehicle:vehicle,
+
+      description:description || null,
+
+      tag:tag || null,
+
+      active:true
+
+    };
 
 
-  document.getElementById("success").style.display="block";
+    if(finalImage){
+
+      productData.image =
+        finalImage;
+
+    }
 
 
-  setTimeout(function(){
+    if(editingId){
 
-    document.getElementById("success").style.display="none";
+      const {
+        error
+      } =
+        await supabaseClient
+          .from("products")
+          .update(productData)
+          .eq("id",editingId);
 
-  },2000);
+      if(error){
+        throw error;
+      }
 
 
-  showProducts();
+      showMessage(
+        "success",
+        "✅ Product کامیابی سے Update ہو گیا۔"
+      );
+
+    }else{
+
+      const {
+        error
+      } =
+        await supabaseClient
+          .from("products")
+          .insert(productData);
+
+      if(error){
+        throw error;
+      }
+
+
+      showMessage(
+        "success",
+        "✅ Product کامیابی سے محفوظ ہو گیا۔"
+      );
+
+    }
+
+
+    resetForm();
+
+    await loadProducts();
+
+  }catch(err){
+
+    showMessage(
+      "error",
+      err.message || "Product save نہیں ہو سکا۔"
+    );
+
+  }finally{
+
+    saveBtn.disabled=false;
+
+    saveBtn.textContent =
+      editingId
+        ? "Product Update کریں"
+        : "Product محفوظ کریں";
+
+  }
 
 }
 
 
-function showProducts(){
+/* ================= LOAD PRODUCTS ================= */
+
+async function loadProducts(){
 
   const list =
     document.getElementById("productList");
 
-  const products = getProducts();
+  list.innerHTML =
+    "<p style='color:#777'>Products load ہو رہے ہیں...</p>";
 
 
-  if(products.length === 0){
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .order("created_at",{ascending:false});
+
+
+  if(error){
+
+    list.innerHTML =
+      "<p style='color:#d71920'>Products load نہیں ہو سکے۔</p>";
+
+    showMessage(
+      "error",
+      error.message
+    );
+
+    return;
+
+  }
+
+
+  if(!data || data.length===0){
 
     list.innerHTML =
       "<p style='color:#777'>ابھی کوئی Product شامل نہیں کیا گیا۔</p>";
@@ -346,39 +959,93 @@ function showProducts(){
   }
 
 
-  list.innerHTML = "";
+  list.innerHTML="";
 
 
-  products.forEach(function(product){
+  data.forEach(function(product){
 
     const div =
       document.createElement("div");
 
-    div.className="product";
+    div.className =
+      "product" +
+      (product.active ? "" : " inactive");
 
 
-    div.innerHTML=`
+    const image =
+      product.image
+        ? `<img class="product-image" src="${escapeHTML(product.image)}" alt="">`
+        : `<div class="product-image"></div>`;
 
-      <h3>${escapeHTML(product.name)}</h3>
 
-      <div class="price">
-        PKR ${escapeHTML(product.price)}
+    const activeText =
+      product.active
+        ? "Visible"
+        : "Hidden";
+
+
+    div.innerHTML = `
+
+      <div class="product-row">
+
+        ${image}
+
+        <div class="product-details">
+
+          <h3>
+            ${escapeHTML(product.name)}
+          </h3>
+
+          <div class="price">
+            PKR ${escapeHTML(product.price)}
+          </div>
+
+          <div class="meta">
+            Category: ${escapeHTML(product.category || "Other")}
+          </div>
+
+          <div class="meta">
+            Vehicle: ${escapeHTML(product.vehicle || "Other")}
+          </div>
+
+          <div class="meta">
+            Status: ${activeText}
+          </div>
+
+          ${
+            product.tag
+              ? `<div class="meta">Tag: ${escapeHTML(product.tag)}</div>`
+              : ""
+          }
+
+        </div>
+
       </div>
 
-      <small>
-        ${escapeHTML(product.category)}
-      </small>
+      <div class="actions">
 
-      <p style="margin-top:6px;font-size:13px">
-        ${escapeHTML(product.description)}
-      </p>
+        <button
+          class="edit-btn"
+          onclick="editProduct(${product.id})"
+        >
+          ✏️ Edit
+        </button>
 
-      <button
-        class="delete"
-        onclick="deleteProduct(${product.id})"
-      >
-        🗑️ Delete
-      </button>
+        <button
+          class="hide-btn"
+          onclick="toggleProduct(${product.id},${product.active})"
+        >
+          ${product.active ? "👁️ Hide" : "👁️ Show"}
+        </button>
+
+        <button
+          class="delete-btn"
+          onclick="deleteProduct(${product.id})"
+        >
+          🗑️ Delete
+        </button>
+
+      </div>
 
     `;
 
@@ -390,52 +1057,210 @@ function showProducts(){
 }
 
 
-function deleteProduct(id){
+/* ================= EDIT PRODUCT ================= */
 
-  if(!confirm("کیا آپ یہ Product delete کرنا چاہتے ہیں؟")){
+async function editProduct(id){
 
-    return;
-
-  }
-
-
-  let products = getProducts();
-
-
-  products =
-    products.filter(function(product){
-
-      return product.id !== id;
-
-    });
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .eq("id",id)
+      .single();
 
 
-  saveProducts(products);
+  if(error){
 
-  showProducts();
-
-}
-
-
-function clearProducts(){
-
-  if(!confirm("کیا آپ تمام Products delete کرنا چاہتے ہیں؟")){
+    showMessage(
+      "error",
+      error.message
+    );
 
     return;
 
   }
 
 
-  localStorage.removeItem("maniProducts");
+  editingId =
+    id;
 
-  showProducts();
+
+  document.getElementById("name").value =
+    data.name || "";
+
+  document.getElementById("price").value =
+    data.price || "";
+
+  document.getElementById("category").value =
+    data.category || "Other";
+
+  document.getElementById("vehicle").value =
+    data.vehicle || "Other";
+
+  document.getElementById("description").value =
+    data.description || "";
+
+  document.getElementById("tag").value =
+    data.tag || "";
+
+  document.getElementById("imageUrl").value =
+    data.image || "";
+
+
+  document.getElementById("imageFile").value="";
+
+
+  document.getElementById("formTitle").textContent =
+    "✏️ Product Edit کریں";
+
+  document.getElementById("saveBtn").textContent =
+    "Product Update کریں";
+
+  document.getElementById("cancelBtn").style.display =
+    "block";
+
+  document.getElementById("formCard").classList.add("editing");
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
+
+/* ================= CANCEL EDIT ================= */
+
+function cancelEdit(){
+
+  resetForm();
+
+}
+
+
+/* ================= RESET FORM ================= */
+
+function resetForm(){
+
+  editingId=null;
+
+  document.getElementById("name").value="";
+  document.getElementById("price").value="";
+  document.getElementById("category").value="Car Care";
+  document.getElementById("vehicle").value="All Vehicles";
+  document.getElementById("description").value="";
+  document.getElementById("tag").value="";
+  document.getElementById("imageUrl").value="";
+  document.getElementById("imageFile").value="";
+
+  document.getElementById("imagePreview").style.display="none";
+
+  document.getElementById("formTitle").textContent =
+    "➕ نیا Product شامل کریں";
+
+  document.getElementById("saveBtn").textContent =
+    "Product محفوظ کریں";
+
+  document.getElementById("cancelBtn").style.display =
+    "none";
+
+  document.getElementById("formCard").classList.remove("editing");
+
+}
+
+
+/* ================= HIDE / SHOW ================= */
+
+async function toggleProduct(id,currentStatus){
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .update({
+        active:!currentStatus
+      })
+      .eq("id",id);
+
+
+  if(error){
+
+    showMessage(
+      "error",
+      error.message
+    );
+
+    return;
+
+  }
+
+
+  showMessage(
+    "success",
+    currentStatus
+      ? "Product hide کر دیا گیا۔"
+      : "Product دوبارہ show کر دیا گیا۔"
+  );
+
+
+  await loadProducts();
+
+}
+
+
+/* ================= DELETE ================= */
+
+async function deleteProduct(id){
+
+  if(!confirm(
+    "کیا آپ یہ Product ہمیشہ کے لیے Delete کرنا چاہتے ہیں؟"
+  )){
+    return;
+  }
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .delete()
+      .eq("id",id);
+
+
+  if(error){
+
+    showMessage(
+      "error",
+      error.message
+    );
+
+    return;
+
+  }
+
+
+  showMessage(
+    "success",
+    "🗑️ Product Delete ہو گیا۔"
+  );
+
+
+  await loadProducts();
+
+}
+
+
+/* ================= ESCAPE HTML ================= */
 
 function escapeHTML(text){
 
-  return String(text || "")
+  return String(text ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -445,9 +1270,9 @@ function escapeHTML(text){
 }
 
 
-showProducts();
+/* ================= START ================= */
 
-</script>
+checkSession();
 
-</body>
+</script></body>
 </html>
