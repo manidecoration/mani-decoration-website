@@ -6,7 +6,7 @@
 
 <title>MANI DECORATION | Auto Accessories</title>
 
-<meta name="description" content="MANI DECORATION - گاڑیوں کا سامان، سیٹ کور، میٹ، آٹو ایکسسریز، کار کیئر، کسٹم کام اور خصوصی ڈیلز۔">
+<meta name="description" content="MANI DECORATION - Auto Accessories, Seat Covers, Floor Mats, Car Care and Custom Work.">
 
 <style>
 *{
@@ -31,8 +31,7 @@ a{
   color:inherit;
 }
 
-button,
-input{
+button,input{
   font-family:inherit;
 }
 
@@ -42,7 +41,7 @@ input{
   margin:auto;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
   background:#090909;
@@ -61,8 +60,6 @@ header{
   gap:12px;
 }
 
-/* MD + BRAND */
-
 .brand{
   display:flex;
   align-items:center;
@@ -71,30 +68,22 @@ header{
 }
 
 .brand-icon{
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
   border:2px solid #d71920;
   border-radius:10px;
   background:#111;
-  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:16px;
   font-weight:900;
-  letter-spacing:-1px;
-  box-shadow:0 3px 10px rgba(215,25,32,.25);
 }
 
 .brand-name{
   font-size:20px;
   font-weight:900;
-  letter-spacing:.7px;
-  color:white;
-  line-height:1;
+  letter-spacing:.5px;
 }
-
-/* MENU BUTTON */
 
 .menu-btn{
   width:44px;
@@ -104,23 +93,11 @@ header{
   color:white;
   border-radius:10px;
   font-size:22px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
-
-.menu-btn:active{
-  transform:scale(.95);
-}
-
-/* MENU */
 
 .menu{
   display:none;
   background:#111;
-  color:white;
-  padding:15px 4%;
   border-top:1px solid #333;
 }
 
@@ -130,18 +107,18 @@ header{
 
 .menu a{
   display:block;
-  padding:11px 5px;
+  padding:12px 5px;
   border-bottom:1px solid #292929;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   background:
     radial-gradient(circle at top right,#3a0808,transparent 45%),
     linear-gradient(135deg,#090909,#171717);
   color:white;
-  padding:30px 0 28px;
+  padding:35px 0;
 }
 
 .hero-content{
@@ -149,22 +126,22 @@ header{
 }
 
 .hero h1{
-  font-size:32px;
+  font-size:34px;
   font-weight:900;
   direction:ltr;
   text-shadow:3px 3px 0 #d71920;
-  margin-bottom:5px;
 }
 
 .hero p{
   color:#ddd;
   font-size:15px;
+  margin-top:5px;
 }
 
-/* ================= OFFER SLIDER ================= */
+/* OFFER */
 
 .offer-wrap{
-  padding:15px 0 5px;
+  padding:15px 0;
   background:#111;
 }
 
@@ -173,33 +150,19 @@ header{
   color:white;
   border-radius:16px;
   padding:22px 18px;
-  min-height:145px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
   text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-  transition:opacity .35s ease,transform .35s ease;
-}
-
-.offer.fade{
-  opacity:.25;
-  transform:scale(.98);
 }
 
 .offer small{
   font-weight:bold;
-  letter-spacing:1px;
 }
 
 .offer h2{
   font-size:23px;
-  margin:3px 0;
 }
 
 .offer p{
   font-size:14px;
-  color:#fff;
 }
 
 .offer-btn{
@@ -208,11 +171,11 @@ header{
   color:#111;
   padding:8px 18px;
   border-radius:8px;
-  margin:10px auto 0;
+  margin-top:10px;
   font-weight:bold;
 }
 
-/* ================= MOVING STRIP ================= */
+/* TICKER */
 
 .ticker{
   overflow:hidden;
@@ -220,27 +183,19 @@ header{
   color:white;
   white-space:nowrap;
   padding:8px 0;
-  border-top:1px solid #333;
-  border-bottom:1px solid #333;
 }
 
 .ticker-track{
   display:inline-block;
-  padding-right:100%;
   animation:ticker 18s linear infinite;
-  direction:rtl;
 }
 
 @keyframes ticker{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(100%);
-  }
+  from{transform:translateX(0);}
+  to{transform:translateX(100%);}
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 
 section{
   padding:25px 0;
@@ -251,7 +206,6 @@ section{
   align-items:center;
   justify-content:space-between;
   margin-bottom:14px;
-  gap:10px;
 }
 
 .section-title h2{
@@ -262,15 +216,13 @@ section{
 .section-title span{
   color:#777;
   font-size:12px;
-  direction:ltr;
 }
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
 .search-box{
   display:flex;
   gap:8px;
-  margin-top:10px;
 }
 
 .search-box input{
@@ -282,7 +234,6 @@ section{
   font-size:15px;
   direction:ltr;
   outline:none;
-  background:white;
 }
 
 .search-box input:focus{
@@ -291,105 +242,38 @@ section{
 
 .search-box button{
   width:50px;
-  border:none;
+  border:0;
   background:#d71920;
   color:white;
   border-radius:11px;
   font-size:20px;
-  cursor:pointer;
 }
 
-/* ================= VEHICLES ================= */
+/* FILTERS */
 
-.vehicle-scroll{
+.filters{
   display:flex;
-  gap:12px;
+  gap:8px;
   overflow-x:auto;
-  padding-bottom:8px;
-  direction:ltr;
-  scrollbar-width:thin;
+  padding:5px 0 10px;
 }
 
-.vehicle{
-  min-width:125px;
+.filter-btn{
+  min-width:max-content;
+  border:1px solid #ddd;
   background:white;
-  border-radius:13px;
-  padding:10px;
-  border:1px solid #e1e1e1;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.07);
+  padding:9px 14px;
+  border-radius:20px;
   cursor:pointer;
-  transition:.2s;
 }
 
-.vehicle:active{
-  transform:scale(.97);
-}
-
-.vehicle-img{
-  height:65px;
-  border-radius:9px;
-  background:linear-gradient(135deg,#222,#555);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.filter-btn.active{
+  background:#d71920;
   color:white;
-  font-size:12px;
-  margin-bottom:7px;
-  direction:ltr;
+  border-color:#d71920;
 }
 
-.vehicle strong{
-  font-size:13px;
-  direction:ltr;
-  display:block;
-}
-
-.vehicle small{
-  color:#777;
-  font-size:11px;
-}
-
-/* ================= CATEGORIES ================= */
-
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-}
-
-.category{
-  background:white;
-  border-radius:13px;
-  padding:15px 7px;
-  text-align:center;
-  border:1px solid #e2e2e2;
-  box-shadow:0 4px 12px rgba(0,0,0,.06);
-  transition:.2s;
-}
-
-.category:active{
-  transform:scale(.97);
-}
-
-.category-icon{
-  font-size:25px;
-  margin-bottom:5px;
-}
-
-.category strong{
-  font-size:13px;
-  display:block;
-}
-
-.category small{
-  font-size:9px;
-  color:#777;
-  direction:ltr;
-  display:block;
-}
-
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .product-grid{
   display:grid;
@@ -405,20 +289,26 @@ section{
   box-shadow:0 5px 14px rgba(0,0,0,.07);
 }
 
-.product-img{
-  height:145px;
+.product-image{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  background:#eee;
+  display:block;
+}
+
+.no-image{
+  height:160px;
   background:linear-gradient(135deg,#222,#777);
+  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:white;
-  font-size:13px;
   text-align:center;
-  direction:ltr;
 }
 
 .product-info{
-  padding:10px;
+  padding:11px;
 }
 
 .tag{
@@ -432,18 +322,29 @@ section{
 }
 
 .product h3{
-  font-size:14px;
+  font-size:15px;
   line-height:1.4;
-  margin-bottom:4px;
+}
+
+.product-description{
+  color:#666;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.product-meta{
+  color:#777;
+  font-size:11px;
+  margin-top:4px;
 }
 
 .price{
-  font-size:17px;
+  font-size:18px;
   font-weight:900;
   color:#d71920;
   direction:ltr;
   text-align:left;
-  margin:4px 0;
+  margin:6px 0;
 }
 
 .order-btn{
@@ -451,86 +352,33 @@ section{
   text-align:center;
   background:#111;
   color:white;
-  padding:8px 5px;
+  padding:9px 5px;
   border-radius:8px;
   font-size:12px;
-  margin-top:7px;
+  margin-top:8px;
 }
 
 .order-btn:hover{
   background:#d71920;
 }
 
-.wa-icon{
-  color:#25D366;
-  font-size:15px;
-  vertical-align:middle;
-  margin-left:4px;
-}
+/* LOADING */
 
-/* ================= DEALS ================= */
-
-.deal-grid{
-  display:grid;
-  gap:12px;
-}
-
-.deal{
-  background:#111;
-  color:white;
-  border-radius:15px;
-  padding:18px;
-  border-right:4px solid #d71920;
-}
-
-.deal h3{
-  font-size:18px;
-}
-
-.deal p{
-  color:#ccc;
-  font-size:13px;
-}
-
-.deal-price{
-  color:#ff4a4a;
-  font-size:21px;
-  font-weight:900;
-  direction:ltr;
-  margin-top:5px;
-}
-
-/* ================= BUILD DEAL ================= */
-
-.build{
-  background:linear-gradient(135deg,#1a1a1a,#080808);
-  color:white;
-  border-radius:17px;
-  padding:23px 18px;
+.loading{
   text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  padding:35px 10px;
+  color:#777;
 }
 
-.build h2{
-  font-size:23px;
+.error-box{
+  background:#fdeaea;
+  color:#a40000;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
 }
 
-.build p{
-  color:#ccc;
-  font-size:13px;
-  margin:7px 0 14px;
-}
-
-.build-btn{
-  display:inline-block;
-  background:#d71920;
-  color:white;
-  padding:10px 22px;
-  border-radius:9px;
-  font-weight:bold;
-}
-
-/* ================= WHATSAPP ================= */
+/* WHATSAPP */
 
 .whatsapp{
   position:fixed;
@@ -543,14 +391,9 @@ section{
   padding:11px 15px;
   border-radius:30px;
   font-weight:bold;
-  box-shadow:0 6px 20px rgba(0,0,0,.3);
 }
 
-.whatsapp:hover{
-  background:#d71920;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   background:#080808;
@@ -562,7 +405,6 @@ footer{
 
 footer h3{
   font-size:20px;
-  direction:ltr;
 }
 
 footer p{
@@ -571,28 +413,21 @@ footer p{
   margin-top:5px;
 }
 
-/* ================= DESKTOP ================= */
+/* DESKTOP */
 
-@media (min-width:700px){
+@media(min-width:700px){
 
   .hero h1{
     font-size:45px;
-  }
-
-  .category-grid{
-    grid-template-columns:repeat(6,1fr);
   }
 
   .product-grid{
     grid-template-columns:repeat(4,1fr);
   }
 
-  .deal-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .product-img{
-    height:175px;
+  .product-image,
+  .no-image{
+    height:190px;
   }
 }
 </style>
@@ -600,7 +435,7 @@ footer p{
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -622,8 +457,6 @@ footer p{
       class="menu-btn"
       id="menuBtn"
       type="button"
-      aria-label="Menu"
-      aria-expanded="false"
     >
       ☰
     </button>
@@ -635,17 +468,8 @@ footer p{
     <div class="container">
 
       <a href="#home">🏠 گھر</a>
-
-      <a href="#vehicles">🚗 اپنی گاڑی منتخب کریں</a>
-
-      <a href="#categories">🛍️ گاڑی کا سامان</a>
-
-      <a href="#hot">🔥 Hot Items</a>
-
-      <a href="#deals">🎁 خاص ڈیلز</a>
-
-      <a href="#build">🧰 اپنی ڈیل بنائیں</a>
-
+      <a href="#products">🛍️ Products</a>
+      <a href="#categories">📦 Categories</a>
       <a href="#contact">📞 رابطہ کریں</a>
 
     </div>
@@ -657,7 +481,7 @@ footer p{
 
 <main id="home">
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -674,32 +498,29 @@ footer p{
 </section>
 
 
-<!-- ================= OFFER ================= -->
+<!-- OFFER -->
 
 <div class="offer-wrap">
 
   <div class="container">
 
-    <div class="offer" id="offerBox">
+    <div class="offer">
 
-      <small id="offerSmall">
-        🔥 HOT DEAL
-      </small>
+      <small>🔥 HOT DEAL</small>
 
-      <h2 id="offerTitle">
+      <h2>
         اپنی گاڑی کو نیا انداز دیں
       </h2>
 
-      <p id="offerText">
-        خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان
+      <p>
+        سیٹ کور، میٹ، کار کیئر اور مکمل آٹو ایکسسریز
       </p>
 
       <a
-        href="#deals"
+        href="#products"
         class="offer-btn"
-        id="offerBtn"
       >
-        ڈیل دیکھیں
+        Products دیکھیں
       </a>
 
     </div>
@@ -709,7 +530,7 @@ footer p{
 </div>
 
 
-<!-- ================= TICKER ================= -->
+<!-- TICKER -->
 
 <div class="ticker">
 
@@ -717,16 +538,12 @@ footer p{
 
     🔥 Hot Items
     &nbsp;&nbsp; | &nbsp;&nbsp;
-
     ⭐ Best Sellers
     &nbsp;&nbsp; | &nbsp;&nbsp;
-
     🎁 Special Deals
     &nbsp;&nbsp; | &nbsp;&nbsp;
-
     📦 Bulk Orders Welcome
     &nbsp;&nbsp; | &nbsp;&nbsp;
-
     📲 WhatsApp پر آرڈر کریں
 
   </div>
@@ -734,7 +551,7 @@ footer p{
 </div>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- SEARCH -->
 
 <section>
 
@@ -743,7 +560,7 @@ footer p{
     <div class="section-title">
 
       <h2>
-        اپنی گاڑی کا سامان تلاش کریں
+        🔎 Product تلاش کریں
       </h2>
 
       <span>
@@ -757,7 +574,7 @@ footer p{
       <input
         type="search"
         id="searchInput"
-        placeholder="Search vehicle or product..."
+        placeholder="Search product or vehicle..."
       >
 
       <button
@@ -774,134 +591,7 @@ footer p{
 </section>
 
 
-<!-- ================= VEHICLES ================= -->
-
-<section id="vehicles">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        اپنی گاڑی منتخب کریں
-      </h2>
-
-      <span>
-        Vehicles
-      </span>
-
-    </div>
-
-
-    <div class="vehicle-scroll">
-
-      <div
-        class="vehicle"
-        data-vehicle="Suzuki Carry"
-      >
-
-        <div class="vehicle-img">
-          SUZUKI CARRY
-        </div>
-
-        <strong>
-          Suzuki Carry
-        </strong>
-
-        <small>
-          کیری ڈبہ
-        </small>
-
-      </div>
-
-
-      <div
-        class="vehicle"
-        data-vehicle="Shahzore"
-      >
-
-        <div class="vehicle-img">
-          SHAHZORE
-        </div>
-
-        <strong>
-          Shahzore
-        </strong>
-
-        <small>
-          شہزور
-        </small>
-
-      </div>
-
-
-      <div
-        class="vehicle"
-        data-vehicle="Hyundai Porter"
-      >
-
-        <div class="vehicle-img">
-          PORTER
-        </div>
-
-        <strong>
-          Hyundai Porter
-        </strong>
-
-        <small>
-          پورٹر
-        </small>
-
-      </div>
-
-
-      <div
-        class="vehicle"
-        data-vehicle="JAC X200"
-      >
-
-        <div class="vehicle-img">
-          JAC X200
-        </div>
-
-        <strong>
-          JAC X200
-        </strong>
-
-        <small>
-          JAC
-        </small>
-
-      </div>
-
-
-      <div
-        class="vehicle"
-        data-vehicle="Other"
-      >
-
-        <div class="vehicle-img">
-          OTHER
-        </div>
-
-        <strong>
-          Other Vehicles
-        </strong>
-
-        <small>
-          دیگر گاڑیاں
-        </small>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CATEGORIES ================= -->
+<!-- CATEGORIES -->
 
 <section id="categories">
 
@@ -910,118 +600,65 @@ footer p{
     <div class="section-title">
 
       <h2>
-        گاڑی کا سامان
+        📦 Categories
       </h2>
 
       <span>
-        Auto Accessories
+        Categories
       </span>
 
     </div>
 
+    <div class="filters" id="categoryFilters">
 
-    <div class="category-grid">
+      <button
+        class="filter-btn active"
+        data-category="All"
+      >
+        تمام Products
+      </button>
 
-      <a href="#hot" class="category">
+      <button
+        class="filter-btn"
+        data-category="Car Care"
+      >
+        🧴 Car Care
+      </button>
 
-        <div class="category-icon">
-          💺
-        </div>
+      <button
+        class="filter-btn"
+        data-category="Seat Covers"
+      >
+        💺 Seat Covers
+      </button>
 
-        <strong>
-          سیٹ کور
-        </strong>
+      <button
+        class="filter-btn"
+        data-category="Floor Mats"
+      >
+        🧩 Floor Mats
+      </button>
 
-        <small>
-          Seat Covers
-        </small>
+      <button
+        class="filter-btn"
+        data-category="Auto Decoration"
+      >
+        ✨ Auto Decoration
+      </button>
 
-      </a>
+      <button
+        class="filter-btn"
+        data-category="Auto Parts"
+      >
+        🔧 Auto Parts
+      </button>
 
-
-      <a href="#hot" class="category">
-
-        <div class="category-icon">
-          🧩
-        </div>
-
-        <strong>
-          میٹ
-        </strong>
-
-        <small>
-          Floor Mats
-        </small>
-
-      </a>
-
-
-      <a href="#hot" class="category">
-
-        <div class="category-icon">
-          ✨
-        </div>
-
-        <strong>
-          گاڑی کی سجاوٹ
-        </strong>
-
-        <small>
-          Auto Decoration
-        </small>
-
-      </a>
-
-
-      <a href="#hot" class="category">
-
-        <div class="category-icon">
-          🧴
-        </div>
-
-        <strong>
-          صفائی کا سامان
-        </strong>
-
-        <small>
-          Car Care
-        </small>
-
-      </a>
-
-
-      <a href="#hot" class="category">
-
-        <div class="category-icon">
-          🔧
-        </div>
-
-        <strong>
-          گاڑی کے پارٹس
-        </strong>
-
-        <small>
-          Auto Parts
-        </small>
-
-      </a>
-
-
-      <a href="#build" class="category">
-
-        <div class="category-icon">
-          🛠️
-        </div>
-
-        <strong>
-          کسٹم کام
-        </strong>
-
-        <small>
-          Custom Work
-        </small>
-
-      </a>
+      <button
+        class="filter-btn"
+        data-category="Custom Work"
+      >
+        🛠️ Custom Work
+      </button>
 
     </div>
 
@@ -1030,181 +667,32 @@ footer p{
 </section>
 
 
-<!-- ================= HOT PRODUCTS ================= -->
+<!-- PRODUCTS -->
 
-<section id="hot">
+<section id="products">
 
   <div class="container">
 
     <div class="section-title">
 
       <h2>
-        🔥 Hot Items
+        🔥 Products
       </h2>
 
-      <span>
-        Best Sellers
+      <span id="productCount">
+        Loading...
       </span>
 
     </div>
 
+    <div
+      class="product-grid"
+      id="productGrid"
+    >
 
-    <div class="product-grid" id="productGrid">
-
-
-      <!-- PRODUCT 1 -->
-
-      <div
-        class="product"
-        data-name="Seat Cover Suzuki Carry"
-      >
-
-        <div class="product-img">
-          PRODUCT IMAGE
-        </div>
-
-        <div class="product-info">
-
-          <span class="tag">
-            BEST SELLER
-          </span>
-
-          <h3>
-            Suzuki Carry Seat Cover
-          </h3>
-
-          <div class="price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Seat%20Cover%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="wa-icon">●</span>
-            WhatsApp پر آرڈر
-          </a>
-
-        </div>
-
+      <div class="loading">
+        Products load ہو رہے ہیں...
       </div>
-
-
-      <!-- PRODUCT 2 -->
-
-      <div
-        class="product"
-        data-name="Floor Mat Suzuki Carry Shahzore Porter JAC"
-      >
-
-        <div class="product-img">
-          PRODUCT IMAGE
-        </div>
-
-        <div class="product-info">
-
-          <span class="tag">
-            HOT ITEM
-          </span>
-
-          <h3>
-            Vehicle Floor Mat
-          </h3>
-
-          <div class="price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Floor%20Mat%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="wa-icon">●</span>
-            WhatsApp پر آرڈر
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 3 -->
-
-      <div
-        class="product"
-        data-name="Dashboard Polish 7CF"
-      >
-
-        <div class="product-img">
-          PRODUCT IMAGE
-        </div>
-
-        <div class="product-info">
-
-          <span class="tag">
-            HOT SELLING
-          </span>
-
-          <h3>
-            7CF Dashboard Polish
-          </h3>
-
-          <div class="price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%207CF%20Dashboard%20Polish%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="wa-icon">●</span>
-            WhatsApp پر آرڈر
-            
-      <!-- PRODUCT 4 -->
-
-      <div
-        class="product"
-        data-name="Microfiber Towel Cleaning"
-      >
-
-        <div class="product-img">
-          PRODUCT IMAGE
-        </div>
-
-        <div class="product-info">
-
-          <span class="tag">
-            POPULAR
-          </span>
-
-          <h3>
-            Microfiber Towel
-          </h3>
-
-          <div class="price">
-            PKR —
-          </div>
-
-          <a
-            class="order-btn"
-            href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Microfiber%20Towel%20ke%20bare%20mein%20maloomat%20chahiye."
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="wa-icon">●</span>
-            WhatsApp پر آرڈر
-          </a>
-
-        </div>
-
-      </div>
-
 
     </div>
 
@@ -1212,143 +700,23 @@ footer p{
 
 </section>
 
-          </a>
-
-        </div>
-
-      </div>
-
-
-      
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= DEALS ================= -->
-
-<section id="deals">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        🎁 خاص ڈیلز
-      </h2>
-
-      <span>
-        Special Deals
-      </span>
-
-    </div>
-
-
-    <div class="deal-grid">
-
-
-      <div class="deal">
-
-        <h3>
-          Suzuki Carry Decoration Deal
-        </h3>
-
-        <p>
-          سیٹ کور + میٹ + صفائی/کار کیئر اور دوسری منتخب چیزیں
-        </p>
-
-        <div class="deal-price">
-          PKR —
-        </div>
-
-        <a
-          class="order-btn"
-          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Suzuki%20Carry%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="wa-icon">●</span>
-          Deal کی معلومات WhatsApp پر
-        </a>
-
-      </div>
-
-
-      <div class="deal">
-
-        <h3>
-          Shahzore / Porter / JAC Deal
-        </h3>
-
-        <p>
-          ان گاڑیوں کے مشترکہ سامان کے لیے خصوصی package تیار کیا جا سکتا ہے
-        </p>
-
-        <div class="deal-price">
-          PKR —
-        </div>
-
-        <a
-          class="order-btn"
-          href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20Shahzore%20Porter%20JAC%20Decoration%20Deal%20ke%20bare%20mein%20maloomat%20chahiye."
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="wa-icon">●</span>
-          Deal کی معلومات WhatsApp پر
-        </a>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= BUILD DEAL ================= -->
-
-<section id="build">
-
-  <div class="container">
-
-    <div class="build">
-
-      <h2>
-        🧰 اپنی ڈیل خود بنائیں
-      </h2>
-
-      <p>
-        اپنی پسند کی کئی چیزیں منتخب کریں۔
-        کم یا زیادہ quantity کے مطابق ہم آپ کے لیے package/deal تیار کریں گے۔
-      </p>
-
-      <a
-        class="build-btn"
-        href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20main%20apni%20gaari%20ke%20liye%20apni%20deal%20banwana%20chahta%20hoon."
-        target="_blank"
-        rel="noopener"
-      >
-        WhatsApp پر ڈیل بنائیں
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- WHATSAPP -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/923129542995"
+  target="_blank"
+  rel="noopener"
+>
+  📲 WhatsApp
+</a>
+
+
+<!-- FOOTER -->
 
 <footer id="contact">
 
@@ -1359,15 +727,11 @@ footer p{
     </h3>
 
     <p>
-      Auto Decoration • Accessories • Car Care • Custom Work
+      Auto Accessories • Seat Covers • Floor Mats • Car Care
     </p>
 
     <p>
-      📲 WhatsApp: +92 312 9542995
-    </p>
-
-    <p>
-      © 2026 MANI DECORATION
+      📲 WhatsApp: 0312-9542995
     </p>
 
   </div>
@@ -1375,276 +739,413 @@ footer p{
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- SUPABASE -->
 
-<a
-  class="whatsapp"
-  href="https://wa.me/923129542995?text=Assalam-o-Alaikum%2C%20mujhe%20MANI%20DECORATION%20ke%20products%20ke%20bare%20mein%20maloomat%20chahiye."
-  target="_blank"
-  rel="noopener"
->
-  <span class="wa-icon">●</span>
-  WhatsApp
-</a>
-
-
-<!-- ================= JAVASCRIPT ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* ==========================================
-   MENU
-========================================== */
+/* ================= SUPABASE ================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const menu = document.getElementById("menu");
+const SUPABASE_URL =
+  "https://dewshygrcafbmowbwpzc.supabase.co";
 
-menuBtn.addEventListener("click", function(){
+const SUPABASE_KEY =
+  "sb_publishable_GvjDMeEQB19fTjB_pc5D4w_wwVhx3UW";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* ================= VARIABLES ================= */
+
+let allProducts = [];
+
+let selectedCategory = "All";
+
+let searchText = "";
+
+
+/* ================= MENU ================= */
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const menu =
+  document.getElementById("menu");
+
+menuBtn.addEventListener("click",function(){
 
   menu.classList.toggle("show");
 
-  const isOpen = menu.classList.contains("show");
-
-  menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
 });
 
 
-/* CLOSE MENU AFTER CLICKING A MENU LINK */
+document.querySelectorAll(".menu a").forEach(function(link){
 
-const menuLinks = document.querySelectorAll(".menu a");
-
-menuLinks.forEach(function(link){
-
-  link.addEventListener("click", function(){
+  link.addEventListener("click",function(){
 
     menu.classList.remove("show");
 
-    menuBtn.setAttribute("aria-expanded","false");
-
   });
 
 });
 
 
-/* ==========================================
-   SEARCH
-========================================== */
+/* ================= LOAD PRODUCTS ================= */
 
-const searchInput = document.getElementById("searchInput");
-const searchBtn = document.getElementById("searchBtn");
-const products = document.querySelectorAll(".product");
+async function loadProducts(){
 
+  const grid =
+    document.getElementById("productGrid");
 
-function searchProducts(){
+  const count =
+    document.getElementById("productCount");
 
-  const input = searchInput.value
-    .toLowerCase()
-    .trim();
+  grid.innerHTML =
+    '<div class="loading">Products load ہو رہے ہیں...</div>';
 
-  products.forEach(function(product){
+  const result =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .eq("active",true)
+      .order("created_at",{ascending:false});
 
-    const name = product
-      .getAttribute("data-name")
-      .toLowerCase();
+  const data =
+    result.data;
 
-    if(input === "" || name.includes(input)){
-
-      product.style.display = "";
-
-    }else{
-
-      product.style.display = "none";
-
-    }
-
-  });
-
-  document.getElementById("hot").scrollIntoView({
-    behavior:"smooth"
-  });
-
-}
+  const error =
+    result.error;
 
 
-searchBtn.addEventListener("click", searchProducts);
+  if(error){
 
+    console.error(
+      "Supabase Error:",
+      error
+    );
 
-/* SEARCH WHILE TYPING */
+    grid.innerHTML = `
+      <div class="error-box">
+        Products load نہیں ہو سکے۔<br><br>
+        ${escapeHTML(error.message)}
+      </div>
+    `;
 
-searchInput.addEventListener("input", function(){
+    count.textContent =
+      "Error";
 
-  const input = searchInput.value
-    .toLowerCase()
-    .trim();
-
-  products.forEach(function(product){
-
-    const name = product
-      .getAttribute("data-name")
-      .toLowerCase();
-
-    if(input === "" || name.includes(input)){
-
-      product.style.display = "";
-
-    }else{
-
-      product.style.display = "none";
-
-    }
-
-  });
-
-});
-
-
-/* ==========================================
-   VEHICLE SEARCH
-========================================== */
-
-const vehicles = document.querySelectorAll(".vehicle");
-
-vehicles.forEach(function(vehicle){
-
-  vehicle.addEventListener("click", function(){
-
-    const vehicleName =
-      vehicle.getAttribute("data-vehicle");
-
-    searchInput.value = vehicleName;
-
-    searchProducts();
-
-  });
-
-});
-
-
-/* ==========================================
-   OFFER SLIDER
-   CHANGES EVERY 5 SECONDS
-========================================== */
-
-const offers = [
-
-  {
-    small:"🔥 HOT DEAL",
-    title:"اپنی گاڑی کو نیا انداز دیں",
-    text:"خاص ڈیلز، سیٹ کور، میٹ اور گاڑیوں کا مکمل سامان",
-    link:"#deals",
-    button:"ڈیل دیکھیں"
-  },
-
-  {
-    small:"⭐ BEST SELLERS",
-    title:"مشہور اور پسندیدہ سامان",
-    text:"سیٹ کور، میٹ، کار کیئر اور دیگر Auto Accessories",
-    link:"#hot",
-    button:"Hot Items دیکھیں"
-  },
-
-  {
-    small:"📦 BULK ORDERS",
-    title:"زیادہ سامان؟ اپنی Deal بنائیں",
-    text:"Quantity کے مطابق package اور special deal کے لیے WhatsApp کریں",
-    link:"#build",
-    button:"اپنی Deal بنائیں"
+    return;
   }
 
-];
+
+  allProducts =
+    data || [];
 
 
-let offerIndex = 0;
-
-const offerBox = document.getElementById("offerBox");
-const offerSmall = document.getElementById("offerSmall");
-const offerTitle = document.getElementById("offerTitle");
-const offerText = document.getElementById("offerText");
-const offerBtn = document.getElementById("offerBtn");
-
-
-function showOffer(){
-
-  const offer = offers[offerIndex];
-
-  offerBox.classList.add("fade");
-
-  setTimeout(function(){
-
-    offerSmall.textContent = offer.small;
-
-    offerTitle.textContent = offer.title;
-
-    offerText.textContent = offer.text;
-
-    offerBtn.href = offer.link;
-
-    offerBtn.textContent = offer.button;
-
-    offerBox.classList.remove("fade");
-
-  },180);
+  renderProducts();
 
 }
 
 
-/* FIRST OFFER */
+/* ================= RENDER ================= */
 
-showOffer();
+function renderProducts(){
+
+  const grid =
+    document.getElementById("productGrid");
+
+  const count =
+    document.getElementById("productCount");
 
 
-/* CHANGE EVERY 5 SECONDS */
+  const filtered =
+    allProducts.filter(function(product){
 
-setInterval(function(){
+      const categoryMatch =
+        selectedCategory === "All" ||
+        product.category === selectedCategory;
 
-  offerIndex++;
 
-  if(offerIndex >= offers.length){
+      const search =
+        searchText.toLowerCase();
 
-    offerIndex = 0;
+
+      const text =
+        (
+          (product.name || "") +
+          " " +
+          (product.vehicle || "") +
+          " " +
+          (product.category || "") +
+          " " +
+          (product.description || "") +
+          " " +
+          (product.tag || "")
+        ).toLowerCase();
+
+
+      const searchMatch =
+        !search ||
+        text.includes(search);
+
+
+      return categoryMatch && searchMatch;
+
+    });
+
+
+  count.textContent =
+    filtered.length + " Products";
+
+
+  if(filtered.length === 0){
+
+    grid.innerHTML = `
+      <div class="loading">
+        کوئی Product نہیں ملا۔
+      </div>
+    `;
+
+    return;
 
   }
 
-  showOffer();
 
-},5000);
+  grid.innerHTML = "";
 
 
-/* ==========================================
-   STOP SLIDER WHILE USER IS PRESSING IT
-   THEN CONTINUE
-========================================== */
+  filtered.forEach(function(product){
 
-let sliderTimer;
+    const card =
+      document.createElement("div");
 
-function restartSlider(){
+    card.className =
+      "product";
 
-  clearInterval(sliderTimer);
 
-  sliderTimer = setInterval(function(){
+    let imageHTML;
 
-    offerIndex++;
 
-    if(offerIndex >= offers.length){
+    if(product.image){
 
-      offerIndex = 0;
+      imageHTML = `
+        <img
+          class="product-image"
+          src="${escapeHTML(product.image)}"
+          alt="${escapeHTML(product.name || "Product")}"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+
+        <div
+          class="no-image"
+          style="display:none"
+        >
+          تصویر دستیاب نہیں
+        </div>
+      `;
+
+    }else{
+
+      imageHTML = `
+        <div class="no-image">
+          Product Image
+        </div>
+      `;
 
     }
 
-    showOffer();
 
-  },5000);
+    const tagHTML =
+      product.tag
+        ? `<span class="tag">${escapeHTML(product.tag)}</span>`
+        : "";
+
+
+    const descriptionHTML =
+      product.description
+        ? `
+          <div class="product-description">
+            ${escapeHTML(product.description)}
+          </div>
+        `
+        : "";
+
+
+    const vehicleHTML =
+      product.vehicle
+        ? `
+          <div class="product-meta">
+            🚗 ${escapeHTML(product.vehicle)}
+          </div>
+        `
+        : "";
+
+
+    const categoryHTML =
+      product.category
+        ? `
+          <div class="product-meta">
+            📦 ${escapeHTML(product.category)}
+          </div>
+        `
+        : "";
+
+
+    const price =
+      Number(product.price || 0).toLocaleString("en-PK");
+
+
+    const message =
+      "Assalam-o-Alaikum, mujhe " +
+      (product.name || "Product") +
+      " ke bare mein maloomat chahiye.";
+
+
+    const whatsappURL =
+      "https://wa.me/923129542995?text=" +
+      encodeURIComponent(message);
+
+
+    card.innerHTML = `
+
+      ${imageHTML}
+
+      <div class="product-info">
+
+        ${tagHTML}
+
+        <h3>
+          ${escapeHTML(product.name || "Product")}
+        </h3>
+
+        ${vehicleHTML}
+
+        ${categoryHTML}
+
+        ${descriptionHTML}
+
+        <div class="price">
+          PKR ${price}
+        </div>
+
+        <a
+          class="order-btn"
+          href="${whatsappURL}"
+          target="_blank"
+          rel="noopener"
+        >
+          📲 WhatsApp پر آرڈر کریں
+        </a>
+
+      </div>
+
+    `;
+
+
+    grid.appendChild(card);
+
+  });
 
 }
 
 
-/* ==========================================
-   SAFETY CHECK
-   ENSURES SLIDER STARTS
-========================================== */
+/* ================= CATEGORY FILTER ================= */
 
-restartSlider();
+document
+  .querySelectorAll(".filter-btn")
+  .forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach(function(btn){
+
+          btn.classList.remove("active");
+
+        });
+
+
+      button.classList.add("active");
+
+
+      selectedCategory =
+        button.dataset.category;
+
+
+      renderProducts();
+
+      document
+        .getElementById("products")
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+
+    });
+
+  });
+
+
+/* ================= SEARCH ================= */
+
+const searchInput =
+  document.getElementById("searchInput");
+
+
+searchInput.addEventListener(
+  "input",
+  function(){
+
+    searchText =
+      this.value.trim();
+
+    renderProducts();
+
+  }
+);
+
+
+document
+  .getElementById("searchBtn")
+  .addEventListener("click",function(){
+
+    searchText =
+      searchInput.value.trim();
+
+    renderProducts();
+
+    document
+      .getElementById("products")
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  });
+
+
+/* ================= ESCAPE HTML ================= */
+
+function escapeHTML(text){
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ================= START ================= */
+
+loadProducts();
 
 </script>
 
