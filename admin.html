@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +9,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -26,7 +23,7 @@ body{
 }
 
 .container{
-  max-width:800px;
+  max-width:850px;
   margin:auto;
 }
 
@@ -82,7 +79,7 @@ select{
 }
 
 textarea{
-  min-height:90px;
+  min-height:100px;
   resize:vertical;
 }
 
@@ -109,7 +106,7 @@ button:disabled{
 }
 
 .logout-btn,
-.clear-btn{
+.tab-btn{
   background:#111;
   color:white;
 }
@@ -183,8 +180,6 @@ button:disabled{
 }
 
 .tab-btn{
-  background:#111;
-  color:white;
   margin:0;
 }
 
@@ -200,14 +195,7 @@ button:disabled{
   display:block;
 }
 
-.product{
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:12px;
-  margin-top:10px;
-  background:#fff;
-}
-
+.product,
 .content-item{
   border:1px solid #ddd;
   border-radius:12px;
@@ -240,7 +228,7 @@ button:disabled{
 
 .product h3,
 .content-item h3{
-  margin-bottom:4px;
+  margin-bottom:5px;
   font-size:16px;
 }
 
@@ -254,16 +242,16 @@ button:disabled{
 .meta{
   color:#666;
   font-size:12px;
-  margin-top:3px;
+  margin-top:4px;
 }
 
 .inactive{
-  opacity:.55;
+  opacity:.5;
 }
 
 .actions{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   gap:7px;
   margin-top:10px;
 }
@@ -276,7 +264,7 @@ button:disabled{
 
 .preview{
   width:100%;
-  max-height:200px;
+  max-height:220px;
   object-fit:contain;
   border-radius:10px;
   background:#eee;
@@ -302,14 +290,14 @@ button:disabled{
   color:#555;
   font-size:12px;
   line-height:1.8;
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
-.type-badge{
+.badge{
   display:inline-block;
   background:#111;
   color:white;
-  padding:3px 7px;
+  padding:4px 8px;
   border-radius:5px;
   font-size:10px;
   margin-bottom:5px;
@@ -319,6 +307,23 @@ button:disabled{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
+}
+
+.checkbox-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
+}
+
+.checkbox-row input{
+  width:auto;
+}
+
+.empty{
+  color:#777;
+  text-align:center;
+  padding:20px;
 }
 
 @media(max-width:600px){
@@ -338,39 +343,32 @@ button:disabled{
     height:70px;
   }
 
+  .actions{
+    grid-template-columns:1fr 1fr;
+  }
+
 }
-
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-
 <!-- ================= LOGIN ================= -->
 
 <div class="login-box" id="loginBox">
 
   <div class="header">
-
     <h1>MANI DECORATION</h1>
-
     <p>Admin Control Panel</p>
-
   </div>
-
 
   <div class="card">
 
     <h2>🔐 Admin Login</h2>
 
-    <div
-      class="status error"
-      id="loginError">
-    </div>
-
+    <div class="status error" id="loginError"></div>
 
     <label>Email</label>
 
@@ -381,7 +379,6 @@ button:disabled{
       autocomplete="email"
     >
 
-
     <label>Password</label>
 
     <input
@@ -391,10 +388,7 @@ button:disabled{
       autocomplete="current-password"
     >
 
-
-    <button
-      class="login-btn"
-      onclick="login()">
+    <button class="login-btn" onclick="login()">
       Login
     </button>
 
@@ -403,35 +397,21 @@ button:disabled{
 </div>
 
 
-
 <!-- ================= DASHBOARD ================= -->
 
-<div
-  class="dashboard"
-  id="dashboard">
-
+<div class="dashboard" id="dashboard">
 
   <div class="header">
 
     <div class="topbar">
 
       <div>
-
         <h1>MANI DECORATION</h1>
-
-        <p>
-          Admin Control Panel
-        </p>
-
+        <p>Admin Control Panel</p>
       </div>
 
-
-      <button
-        class="logout-btn"
-        onclick="logout()">
-
+      <button class="logout-btn" onclick="logout()">
         Logout
-
       </button>
 
     </div>
@@ -439,19 +419,11 @@ button:disabled{
   </div>
 
 
-  <div
-    class="status success"
-    id="success">
-  </div>
-
-  <div
-    class="status error"
-    id="error">
-  </div>
+  <div class="status success" id="success"></div>
+  <div class="status error" id="error"></div>
 
 
-
-  <!-- ================= MAIN TABS ================= -->
+  <!-- ================= TABS ================= -->
 
   <div class="tabs">
 
@@ -463,7 +435,6 @@ button:disabled{
       🛒 Products
 
     </button>
-
 
     <button
       class="tab-btn"
@@ -477,28 +448,19 @@ button:disabled{
   </div>
 
 
+  <!-- =====================================================
+       PRODUCTS PANEL
+  ====================================================== -->
 
-  <!-- ================================================= -->
-  <!-- ================= PRODUCTS PANEL ================= -->
-  <!-- ================================================= -->
+  <div class="panel active" id="productsPanel">
 
-  <div
-    class="panel active"
-    id="productsPanel">
-
-
-    <div
-      class="card"
-      id="productFormCard">
+    <div class="card" id="productFormCard">
 
       <h2 id="formTitle">
         ➕ نیا Product شامل کریں
       </h2>
 
-
-      <label>
-        Product Name
-      </label>
+      <label>Product Name</label>
 
       <input
         type="text"
@@ -507,9 +469,7 @@ button:disabled{
       >
 
 
-      <label>
-        Price (PKR)
-      </label>
+      <label>Price (PKR)</label>
 
       <input
         type="number"
@@ -520,9 +480,7 @@ button:disabled{
       >
 
 
-      <label>
-        Category
-      </label>
+      <label>Category</label>
 
       <select id="category">
 
@@ -565,9 +523,7 @@ button:disabled{
       </select>
 
 
-      <label>
-        Vehicle
-      </label>
+      <label>Vehicle</label>
 
       <select id="vehicle">
 
@@ -602,9 +558,7 @@ button:disabled{
       </select>
 
 
-      <label>
-        Product Image
-      </label>
+      <label>Product Image</label>
 
       <input
         type="file"
@@ -617,7 +571,6 @@ button:disabled{
         تصویر منتخب کریں۔ Supabase میں محفوظ ہوگی۔
       </div>
 
-
       <img
         id="imagePreview"
         class="preview"
@@ -625,9 +578,7 @@ button:disabled{
       >
 
 
-      <label>
-        Or Image URL
-      </label>
+      <label>Or Image URL</label>
 
       <input
         type="url"
@@ -636,9 +587,7 @@ button:disabled{
       >
 
 
-      <label>
-        Description
-      </label>
+      <label>Description</label>
 
       <textarea
         id="description"
@@ -646,9 +595,7 @@ button:disabled{
       ></textarea>
 
 
-      <label>
-        Tag
-      </label>
+      <label>Tag</label>
 
       <input
         type="text"
@@ -680,12 +627,9 @@ button:disabled{
     </div>
 
 
-
     <div class="card">
 
-      <h2>
-        📦 میرے Products
-      </h2>
+      <h2>📦 میرے Products</h2>
 
       <div id="productList">
         Loading...
@@ -696,285 +640,258 @@ button:disabled{
   </div>
 
 
+  <!-- =====================================================
+       WEBSITE CONTENT PANEL
+  ====================================================== -->
 
-  <!-- ================================================= -->
-  <!-- =============== WEBSITE CONTENT PANEL ============ -->
-  <!-- ================================================= -->
+  <div class="panel" id="contentPanel">
 
-  <div
-    class="panel"
-    id="contentPanel">
+    <div class="card" id="contentFormCard">
 
-
-    <div class="card">
-
-      <h2>
+      <h2 id="contentFormTitle">
         🎨 Website Content / Promotions
       </h2>
 
-
       <div class="section-note">
 
-        یہاں سے آپ website کے Slider، Banner،
-        Advertisement، Offers، Deals، Manufacturer Ads،
-        Top Selling اور Featured Items خود manage کر سکیں گے۔
+        یہاں سے آپ اپنی Main Website کے Slider، Banner،
+        Offers، Deals، Manufacturer Advertisement،
+        Top Selling، Featured اور Promotional Content
+        خود manage کر سکیں گے۔
 
-        <br>
+        <br><br>
 
-        ایک دفعہ content save کریں،
-        بعد میں Main Website اسی data سے چلائی جائے گی۔
+        جو Content یہاں Active ہوگا، بعد میں Main Website
+        اسی data سے دکھایا جائے گا۔
 
       </div>
 
 
-      <div id="contentFormCard">
+      <label>Content Type</label>
 
-        <h2 id="contentFormTitle">
-          ➕ نیا Website Content شامل کریں
-        </h2>
+      <select id="contentType">
 
+        <option value="banner">
+          🖼️ Banner / Slider
+        </option>
 
-        <label>
-          Content Type
-        </label>
+        <option value="offer">
+          🔥 Today Offer
+        </option>
 
-        <select id="contentType">
+        <option value="deal">
+          🎁 Special Deal
+        </option>
 
-          <option value="banner">
-            🖼️ Banner / Slider
-          </option>
+        <option value="top_selling">
+          ⭐ Top Selling
+        </option>
 
-          <option value="offer">
-            🔥 Today Offer
-          </option>
+        <option value="featured">
+          🌟 Featured
+        </option>
 
-          <option value="deal">
-            🎁 Special Deal
-          </option>
+        <option value="advertisement">
+          📢 Advertisement
+        </option>
 
-          <option value="top_selling">
-            ⭐ Top Selling
-          </option>
+        <option value="manufacturer">
+          🏭 Manufacturer Advertisement
+        </option>
 
-          <option value="featured">
-            🌟 Featured
-          </option>
+        <option value="video">
+          🎬 Video Content
+        </option>
 
-          <option value="advertisement">
-            📢 Advertisement
-          </option>
+        <option value="custom">
+          🛠️ Custom Promotion
+        </option>
 
-          <option value="manufacturer">
-            🏭 Manufacturer Advertisement
-          </option>
-
-          <option value="video">
-            🎬 Video Content
-          </option>
-
-          <option value="custom">
-            🛠️ Custom Promotion
-          </option>
-
-        </select>
+      </select>
 
 
-        <label>
-          Heading / Title
-        </label>
+      <label>Heading / Title</label>
 
-        <input
-          type="text"
-          id="contentTitle"
-          placeholder="مثلاً Suzuki Carry Special Deal"
-        >
+      <input
+        type="text"
+        id="contentTitle"
+        placeholder="مثلاً Suzuki Bolan Special Deal"
+      >
 
 
-        <label>
-          Short Heading
-        </label>
+      <label>Short Heading</label>
 
-        <input
-          type="text"
-          id="contentSubtitle"
-          placeholder="مثلاً TODAY OFFER"
-        >
+      <input
+        type="text"
+        id="contentSubtitle"
+        placeholder="مثلاً TODAY OFFER"
+      >
 
 
-        <label>
-          Description
-        </label>
+      <label>Description</label>
 
-        <textarea
-          id="contentDescription"
-          placeholder="Offer یا advertisement کی تفصیل..."
-        ></textarea>
+      <textarea
+        id="contentDescription"
+        placeholder="Offer، Deal یا Advertisement کی تفصیل..."
+      ></textarea>
 
 
-        <div class="two">
+      <div class="two">
 
+        <div>
 
-          <div>
+          <label>Price (Optional)</label>
 
-            <label>
-              Price (Optional)
-            </label>
-
-            <input
-              type="number"
-              id="contentPrice"
-              placeholder="مثلاً 12500"
-              min="0"
-              step="0.01"
-            >
-
-          </div>
-
-
-          <div>
-
-            <label>
-              Display Order
-            </label>
-
-            <input
-              type="number"
-              id="displayOrder"
-              value="1"
-              min="0"
-            >
-
-          </div>
+          <input
+            type="number"
+            id="contentPrice"
+            placeholder="مثلاً 12500"
+            min="0"
+            step="0.01"
+          >
 
         </div>
 
 
-        <label>
-          Image
-        </label>
+        <div>
 
-        <input
-          type="file"
-          id="contentImageFile"
-          accept="image/*"
-          onchange="previewContentImage()"
-        >
+          <label>Display Order</label>
 
+          <input
+            type="number"
+            id="displayOrder"
+            value="1"
+            min="0"
+          >
 
-        <div class="file-note">
-          Banner یا advertisement کی تصویر یہاں upload کریں۔
         </div>
-
-
-        <img
-          id="contentImagePreview"
-          class="preview"
-          alt="Content Preview"
-        >
-
-
-        <label>
-          Or Image URL
-        </label>
-
-        <input
-          type="url"
-          id="contentImageUrl"
-          placeholder="https://..."
-        >
-
-
-        <label>
-          Video URL (Optional)
-        </label>
-
-        <input
-          type="url"
-          id="contentVideoUrl"
-          placeholder="https://..."
-        >
-
-        <div class="file-note">
-          YouTube یا کسی hosted video کا URL بھی دے سکتے ہیں۔
-        </div>
-
-
-        <label>
-          Button Text
-        </label>
-
-        <input
-          type="text"
-          id="buttonText"
-          placeholder="مثلاً WhatsApp پر رابطہ کریں"
-        >
-
-
-        <label>
-          Button / WhatsApp URL
-        </label>
-
-        <input
-          type="url"
-          id="buttonUrl"
-          placeholder="https://wa.me/923..."
-        >
-
-
-        <label>
-          Start Date (Optional)
-        </label>
-
-        <input
-          type="datetime-local"
-          id="startDate"
-        >
-
-
-        <label>
-          End Date (Optional)
-        </label>
-
-        <input
-          type="datetime-local"
-          id="endDate"
-        >
-
-
-        <button
-          class="add-btn"
-          id="saveContentBtn"
-          onclick="saveContent()">
-
-          Website Content محفوظ کریں
-
-        </button>
-
-
-        <button
-          class="cancel-btn"
-          id="cancelContentBtn"
-          onclick="cancelContentEdit()"
-          style="display:none">
-
-          Edit Cancel کریں
-
-        </button>
 
       </div>
+
+
+      <label>Image</label>
+
+      <input
+        type="file"
+        id="contentImageFile"
+        accept="image/*"
+        onchange="previewContentImage()"
+      >
+
+      <div class="file-note">
+        Slider، Banner، Deal یا Advertisement کی تصویر upload کریں۔
+      </div>
+
+      <img
+        id="contentImagePreview"
+        class="preview"
+        alt="Content Preview"
+      >
+
+
+      <label>Or Image URL</label>
+
+      <input
+        type="url"
+        id="contentImageUrl"
+        placeholder="https://..."
+      >
+
+
+      <label>Video URL (Optional)</label>
+
+      <input
+        type="url"
+        id="contentVideoUrl"
+        placeholder="https://..."
+      >
+
+      <div class="file-note">
+        اگر Video Content ہو تو یہاں hosted video URL دیا جا سکتا ہے۔
+      </div>
+
+
+      <label>Button Text</label>
+
+      <input
+        type="text"
+        id="buttonText"
+        placeholder="مثلاً WhatsApp پر رابطہ کریں"
+      >
+
+
+      <label>Button / WhatsApp URL</label>
+
+      <input
+        type="url"
+        id="buttonUrl"
+        placeholder="https://wa.me/923..."
+      >
+
+
+      <label>Start Date (Optional)</label>
+
+      <input
+        type="datetime-local"
+        id="startDate"
+      >
+
+
+      <label>End Date (Optional)</label>
+
+      <input
+        type="datetime-local"
+        id="endDate"
+      >
+
+
+      <div class="checkbox-row">
+
+        <input
+          type="checkbox"
+          id="contentActive"
+          checked
+        >
+
+        <label
+          for="contentActive"
+          style="margin:0">
+
+          Website پر Active رکھیں
+
+        </label>
+
+      </div>
+
+
+      <button
+        class="add-btn"
+        id="saveContentBtn"
+        onclick="saveContent()">
+
+        Website Content محفوظ کریں
+
+      </button>
+
+
+      <button
+        class="cancel-btn"
+        id="cancelContentBtn"
+        onclick="cancelContentEdit()"
+        style="display:none">
+
+        Edit Cancel کریں
+
+      </button>
 
     </div>
-
 
 
     <!-- CONTENT LIST -->
 
     <div class="card">
 
-      <h2>
-        📋 Website Content List
-      </h2>
-
+      <h2>📋 Website Content List</h2>
 
       <div id="contentList">
         Loading...
@@ -982,13 +899,11 @@ button:disabled{
 
     </div>
 
-
   </div>
 
 </div>
 
 </div>
-
 
 
 <script>
@@ -1015,7 +930,6 @@ window.supabase.createClient(
 ===================================================== */
 
 let editingId = null;
-
 let editingContentId = null;
 
 
@@ -1026,22 +940,18 @@ let editingContentId = null;
 function showMessage(type,message){
 
   const success =
-  document.getElementById("success");
+    document.getElementById("success");
 
   const error =
-  document.getElementById("error");
+    document.getElementById("error");
 
   success.style.display="none";
-
   error.style.display="none";
 
   const box =
-  type==="success"
-  ? success
-  : error;
+    type==="success" ? success : error;
 
   box.textContent=message;
-
   box.style.display="block";
 
   window.scrollTo({
@@ -1050,9 +960,7 @@ function showMessage(type,message){
   });
 
   setTimeout(function(){
-
     box.style.display="none";
-
   },3500);
 
 }
@@ -1061,10 +969,9 @@ function showMessage(type,message){
 function showLoginError(message){
 
   const box =
-  document.getElementById("loginError");
+    document.getElementById("loginError");
 
   box.textContent=message;
-
   box.style.display="block";
 
 }
@@ -1088,42 +995,45 @@ function escapeHTML(text){
 
 function showPanel(panel){
 
-  const productsPanel =
-  document.getElementById("productsPanel");
+  document
+    .getElementById("productsPanel")
+    .classList.remove("active");
 
-  const contentPanel =
-  document.getElementById("contentPanel");
+  document
+    .getElementById("contentPanel")
+    .classList.remove("active");
 
-  const productsTab =
-  document.getElementById("productsTab");
+  document
+    .getElementById("productsTab")
+    .classList.remove("active");
 
-  const contentTab =
-  document.getElementById("contentTab");
-
-
-  productsPanel.classList.remove("active");
-
-  contentPanel.classList.remove("active");
-
-  productsTab.classList.remove("active");
-
-  contentTab.classList.remove("active");
+  document
+    .getElementById("contentTab")
+    .classList.remove("active");
 
 
   if(panel==="products"){
 
-    productsPanel.classList.add("active");
+    document
+      .getElementById("productsPanel")
+      .classList.add("active");
 
-    productsTab.classList.add("active");
+    document
+      .getElementById("productsTab")
+      .classList.add("active");
 
   }
 
 
   if(panel==="content"){
 
-    contentPanel.classList.add("active");
+    document
+      .getElementById("contentPanel")
+      .classList.add("active");
 
-    contentTab.classList.add("active");
+    document
+      .getElementById("contentTab")
+      .classList.add("active");
 
     loadContent();
 
@@ -1139,12 +1049,12 @@ function showPanel(panel){
 async function login(){
 
   const email =
-  document.getElementById("loginEmail")
-  .value.trim();
+    document.getElementById("loginEmail")
+    .value.trim();
 
   const password =
-  document.getElementById("loginPassword")
-  .value;
+    document.getElementById("loginPassword")
+    .value;
 
   document.getElementById(
     "loginError"
@@ -1165,20 +1075,14 @@ async function login(){
   try{
 
     const result =
-    await supabaseClient.auth
-    .signInWithPassword({
-
-      email:email,
-
-      password:password
-
-    });
+      await supabaseClient.auth.signInWithPassword({
+        email:email,
+        password:password
+      });
 
 
     if(result.error){
-
       throw result.error;
-
     }
 
 
@@ -1194,7 +1098,6 @@ async function login(){
     showDashboard();
 
     await loadProducts();
-
     await loadContent();
 
 
@@ -1235,10 +1138,10 @@ async function logout(){
 async function checkSession(){
 
   const result =
-  await supabaseClient.auth.getSession();
+    await supabaseClient.auth.getSession();
 
   const session =
-  result.data.session;
+    result.data.session;
 
 
   if(session){
@@ -1246,7 +1149,6 @@ async function checkSession(){
     showDashboard();
 
     await loadProducts();
-
     await loadContent();
 
   }else{
@@ -1278,67 +1180,61 @@ function showDashboard(){
 
 
 /* =====================================================
-   PRODUCT IMAGE PREVIEW
+   IMAGE PREVIEW
 ===================================================== */
 
 function previewProductImage(){
 
   const file =
-  document.getElementById(
-    "imageFile"
-  ).files[0];
+    document.getElementById(
+      "imageFile"
+    ).files[0];
 
   const preview =
-  document.getElementById(
-    "imagePreview"
-  );
+    document.getElementById(
+      "imagePreview"
+    );
 
 
   if(!file){
 
     preview.style.display="none";
-
     return;
 
   }
 
 
   preview.src =
-  URL.createObjectURL(file);
+    URL.createObjectURL(file);
 
   preview.style.display="block";
 
 }
 
 
-/* =====================================================
-   CONTENT IMAGE PREVIEW
-===================================================== */
-
 function previewContentImage(){
 
   const file =
-  document.getElementById(
-    "contentImageFile"
-  ).files[0];
+    document.getElementById(
+      "contentImageFile"
+    ).files[0];
 
   const preview =
-  document.getElementById(
-    "contentImagePreview"
-  );
+    document.getElementById(
+      "contentImagePreview"
+    );
 
 
   if(!file){
 
     preview.style.display="none";
-
     return;
 
   }
 
 
   preview.src =
-  URL.createObjectURL(file);
+    URL.createObjectURL(file);
 
   preview.style.display="block";
 
@@ -1352,25 +1248,1087 @@ function previewContentImage(){
 async function uploadProductImage(file){
 
   if(!file){
-
     return null;
-
   }
 
 
   const safeName =
-  file.name
-  .toLowerCase()
-  .replace(
-    /[^a-z0-9.\-_]/g,
-    "-"
-  );
+    file.name
+      .toLowerCase()
+      .replace(/[^a-z0-9.\-_]/g,"-");
 
 
   const fileName =
-  Date.now()
-  + "-"
-  + safeName;
+    Date.now() +
+    "-" +
+    safeName;
 
 
-  con
+  const filePath =
+    "products/" +
+    fileName;
+
+
+  const result =
+    await supabaseClient
+      .storage
+      .from("product-images")
+      .upload(
+        filePath,
+        file,
+        {
+          cacheControl:"3600",
+          upsert:false
+        }
+      );
+
+
+  if(result.error){
+    throw result.error;
+  }
+
+
+  const publicResult =
+    supabaseClient
+      .storage
+      .from("product-images")
+      .getPublicUrl(filePath);
+
+
+  return publicResult.data.publicUrl;
+
+}
+
+
+/* =====================================================
+   CONTENT IMAGE UPLOAD
+===================================================== */
+
+async function uploadContentImage(file){
+
+  if(!file){
+      const safeName =
+    file.name
+      .toLowerCase()
+      .replace(/[^a-z0-9.\-_]/g,"-");
+
+  const fileName =
+    Date.now() +
+    "-" +
+    safeName;
+
+  const filePath =
+    "content/" +
+    fileName;
+
+  const result =
+    await supabaseClient
+      .storage
+      .from("product-images")
+      .upload(
+        filePath,
+        file,
+        {
+          cacheControl:"3600",
+          upsert:false
+        }
+      );
+
+  if(result.error){
+    throw result.error;
+  }
+
+  const publicResult =
+    supabaseClient
+      .storage
+      .from("product-images")
+      .getPublicUrl(filePath);
+
+  return publicResult.data.publicUrl;
+
+}
+
+
+/* =====================================================
+   SAVE PRODUCT
+===================================================== */
+
+async function saveProduct(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const price =
+    document.getElementById("price").value.trim();
+
+  const category =
+    document.getElementById("category").value;
+
+  const vehicle =
+    document.getElementById("vehicle").value;
+
+  const description =
+    document.getElementById("description").value.trim();
+
+  const tag =
+    document.getElementById("tag").value.trim();
+
+  const imageUrl =
+    document.getElementById("imageUrl").value.trim();
+
+  const imageFile =
+    document.getElementById("imageFile").files[0];
+
+  if(!name || !price){
+
+    showMessage(
+      "error",
+      "Product Name اور Price لازمی لکھیں۔"
+    );
+
+    return;
+  }
+
+  const saveBtn =
+    document.getElementById("saveBtn");
+
+  saveBtn.disabled=true;
+
+  saveBtn.textContent =
+    editingId
+      ? "Product Update ہو رہا ہے..."
+      : "Product محفوظ ہو رہا ہے...";
+
+  try{
+
+    let finalImage =
+      imageUrl || null;
+
+    if(imageFile){
+
+      finalImage =
+        await uploadProductImage(imageFile);
+
+    }
+
+    const productData = {
+
+      name:name,
+      price:Number(price),
+      category:category,
+      vehicle:vehicle,
+      description:description || null,
+      tag:tag || null,
+      active:true
+
+    };
+
+    if(finalImage){
+
+      productData.image =
+        finalImage;
+
+    }
+
+    if(editingId){
+
+      const result =
+        await supabaseClient
+          .from("products")
+          .update(productData)
+          .eq("id",editingId);
+
+      if(result.error){
+        throw result.error;
+      }
+
+      showMessage(
+        "success",
+        "✅ Product کامیابی سے Update ہو گیا۔"
+      );
+
+    }else{
+
+      const result =
+        await supabaseClient
+          .from("products")
+          .insert(productData);
+
+      if(result.error){
+        throw result.error;
+      }
+
+      showMessage(
+        "success",
+        "✅ Product کامیابی سے محفوظ ہو گیا۔"
+      );
+
+    }
+
+    resetProductForm();
+
+    await loadProducts();
+
+  }catch(err){
+
+    console.error(err);
+
+    showMessage(
+      "error",
+      err.message ||
+      "Product save نہیں ہو سکا۔"
+    );
+
+  }finally{
+
+    saveBtn.disabled=false;
+
+    saveBtn.textContent =
+      editingId
+        ? "Product Update کریں"
+        : "Product محفوظ کریں";
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
+
+async function loadProducts(){
+
+  const list =
+    document.getElementById("productList");
+
+  list.innerHTML =
+    "<p class='empty'>Products load ہو رہے ہیں...</p>";
+
+  const result =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+  if(result.error){
+
+    list.innerHTML =
+      "<p class='empty'>Products load نہیں ہو سکے۔</p>";
+
+    console.error(
+      "Products Error:",
+      result.error
+    );
+
+    return;
+  }
+
+  const data =
+    result.data || [];
+
+  if(data.length === 0){
+
+    list.innerHTML =
+      "<p class='empty'>ابھی کوئی Product شامل نہیں کیا گیا۔</p>";
+
+    return;
+  }
+
+  list.innerHTML="";
+
+  data.forEach(function(product){
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "product" +
+      (
+        product.active
+          ? ""
+          : " inactive"
+      );
+
+    const image =
+      product.image
+        ? `
+          <img
+            class="product-image"
+            src="${escapeHTML(product.image)}"
+            alt=""
+          >
+        `
+        : `
+          <div class="product-image"></div>
+        `;
+
+    div.innerHTML = `
+
+      <div class="product-row">
+
+        ${image}
+
+        <div class="product-details">
+
+          <h3>
+            ${escapeHTML(product.name)}
+          </h3>
+
+          <div class="price">
+            PKR ${escapeHTML(product.price)}
+          </div>
+
+          <div class="meta">
+            Category:
+            ${escapeHTML(
+              product.category || "Other"
+            )}
+          </div>
+
+          <div class="meta">
+            Vehicle:
+            ${escapeHTML(
+              product.vehicle || "Other Vehicles"
+            )}
+          </div>
+
+          <div class="meta">
+            Status:
+            ${
+              product.active
+                ? "Visible"
+                : "Hidden"
+            }
+          </div>
+
+          ${
+            product.tag
+              ? `
+                <div class="meta">
+                  Tag:
+                  ${escapeHTML(product.tag)}
+                </div>
+              `
+              : ""
+          }
+
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button
+          class="edit-btn"
+          onclick="editProduct(${product.id})">
+
+          ✏️ Edit
+
+        </button>
+
+        <button
+          class="hide-btn"
+          onclick="toggleProduct(
+            ${product.id},
+            ${product.active}
+          )">
+
+          ${
+            product.active
+              ? "👁️ Hide"
+              : "👁️ Show"
+          }
+
+        </button>
+
+        <button
+          class="delete-btn"
+          onclick="deleteProduct(${product.id})">
+
+          🗑️ Delete
+
+        </button>
+
+      </div>
+
+    `;
+
+    list.appendChild(div);
+
+  });
+
+}
+
+
+/* =====================================================
+   EDIT PRODUCT
+===================================================== */
+
+async function editProduct(id){
+
+  const result =
+    await supabaseClient
+      .from("products")
+      .select("*")
+      .eq("id",id)
+      .single();
+
+  if(result.error){
+
+    showMessage(
+      "error",
+      result.error.message
+    );
+
+    return;
+  }
+
+  const data =
+    result.data;
+
+  editingId =
+    id;
+
+  document.getElementById("name").value =
+    data.name || "";
+
+  document.getElementById("price").value =
+    data.price || "";
+
+  document.getElementById("category").value =
+    data.category || "Other";
+
+  document.getElementById("vehicle").value =
+    data.vehicle || "All Vehicles";
+
+  document.getElementById("description").value =
+    data.description || "";
+
+  document.getElementById("tag").value =
+    data.tag || "";
+
+  document.getElementById("imageUrl").value =
+    data.image || "";
+
+  document.getElementById("imageFile").value =
+    "";
+
+  document.getElementById("formTitle").textContent =
+    "✏️ Product Edit کریں";
+
+  document.getElementById("saveBtn").textContent =
+    "Product Update کریں";
+
+  document.getElementById("cancelBtn").style.display =
+    "block";
+
+  document
+    .getElementById("productFormCard")
+    .classList.add("editing");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   CANCEL PRODUCT EDIT
+===================================================== */
+
+function cancelEdit(){
+
+  resetProductForm();
+
+}
+
+
+/* =====================================================
+   RESET PRODUCT FORM
+===================================================== */
+
+function resetProductForm(){
+
+  editingId=null;
+
+  document.getElementById("name").value="";
+  document.getElementById("price").value="";
+
+  document.getElementById("category").value =
+    "Seat Covers";
+
+  document.getElementById("vehicle").value =
+    "All Vehicles";
+
+  document.getElementById("description").value="";
+  document.getElementById("tag").value="";
+  document.getElementById("imageUrl").value="";
+  document.getElementById("imageFile").value="";
+
+  document.getElementById(
+    "imagePreview"
+  ).style.display="none";
+
+  document.getElementById(
+    "formTitle"
+  ).textContent =
+    "➕ نیا Product شامل کریں";
+
+  document.getElementById(
+    "saveBtn"
+  ).textContent =
+    "Product محفوظ کریں";
+
+  document.getElementById(
+    "cancelBtn"
+  ).style.display =
+    "none";
+
+  document
+    .getElementById("productFormCard")
+    .classList.remove("editing");
+
+}
+
+
+/* =====================================================
+   HIDE / SHOW PRODUCT
+===================================================== */
+
+async function toggleProduct(
+  id,
+  currentStatus
+){
+
+  const result =
+    await supabaseClient
+      .from("products")
+      .update({
+        active:!currentStatus
+      })
+      .eq("id",id);
+
+  if(result.error){
+
+    showMessage(
+      "error",
+      result.error.message
+    );
+
+    return;
+  }
+
+  showMessage(
+    "success",
+    currentStatus
+      ? "Product Hide کر دیا گیا۔"
+      : "Product دوبارہ Show کر دیا گیا۔"
+  );
+
+  await loadProducts();
+
+}
+
+
+/* =====================================================
+   DELETE PRODUCT
+===================================================== */
+
+async function deleteProduct(id){
+
+  if(!confirm(
+    "کیا آپ یہ Product ہمیشہ کے لیے Delete کرنا چاہتے ہیں؟"
+  )){
+
+    return;
+
+  }
+
+  const result =
+    await supabaseClient
+      .from("products")
+      .delete()
+      .eq("id",id);
+
+  if(result.error){
+
+    showMessage(
+      "error",
+      result.error.message
+    );
+
+    return;
+  }
+
+  showMessage(
+    "success",
+    "🗑️ Product Delete ہو گیا۔"
+  );
+
+  await loadProducts();
+
+}
+
+
+/* =====================================================
+   SAVE WEBSITE CONTENT
+===================================================== */
+
+async function saveContent(){
+
+  const type =
+    document.getElementById(
+      "contentType"
+    ).value;
+
+  const title =
+    document.getElementById(
+      "contentTitle"
+    ).value.trim();
+
+  const subtitle =
+    document.getElementById(
+      "contentSubtitle"
+    ).value.trim();
+
+  const description =
+    document.getElementById(
+      "contentDescription"
+    ).value.trim();
+
+  const price =
+    document.getElementById(
+      "contentPrice"
+    ).value.trim();
+
+  const sortOrder =
+    document.getElementById(
+      "displayOrder"
+    ).value;
+
+  const imageUrl =
+    document.getElementById(
+      "contentImageUrl"
+    ).value.trim();
+
+  const videoUrl =
+    document.getElementById(
+      "contentVideoUrl"
+    ).value.trim();
+
+  const buttonText =
+    document.getElementById(
+      "buttonText"
+    ).value.trim();
+
+  const buttonUrl =
+    document.getElementById(
+      "buttonUrl"
+    ).value.trim();
+
+  const startDate =
+    document.getElementById(
+      "startDate"
+    ).value;
+
+  const endDate =
+    document.getElementById(
+      "endDate"
+    ).value;
+
+  const active =
+    document.getElementById(
+      "contentActive"
+    ).checked;
+
+  const imageFile =
+    document.getElementById(
+      "contentImageFile"
+    ).files[0];
+
+  if(!title && !imageFile && !imageUrl){
+
+    showMessage(
+      "error",
+      "کم از کم Title یا Image ضرور دیں۔"
+    );
+
+    return;
+
+  }
+
+  const saveBtn =
+    document.getElementById(
+      "saveContentBtn"
+    );
+
+  saveBtn.disabled=true;
+
+  saveBtn.textContent =
+    editingContentId
+      ? "Content Update ہو رہا ہے..."
+      : "Content محفوظ ہو رہا ہے...";
+
+  try{
+
+    let finalImage =
+      imageUrl || null;
+
+    if(imageFile){
+
+      finalImage =
+        await uploadContentImage(
+          imageFile
+        );
+
+    }
+
+    const contentData = {
+
+      content_type:type,
+
+      title:title || null,
+
+      subtitle:subtitle || null,
+
+      description:
+        description || null,
+
+      price:
+        price
+          ? Number(price)
+          : null,
+
+      image:
+        finalImage,
+
+      video_url:
+        videoUrl || null,
+
+      button_text:
+        buttonText || null,
+
+      button_url:
+        buttonUrl || null,
+
+      start_date:
+        startDate
+          ? new Date(startDate).toISOString()
+          : null,
+
+      end_date:
+        endDate
+          ? new Date(endDate).toISOString()
+          : null,
+
+      active:active,
+
+      sort_order:
+        Number(sortOrder) || 0
+
+    };
+
+
+    if(editingContentId){
+
+      const result =
+        await supabaseClient
+          .from("website_content")
+          .update(contentData)
+          .eq(
+            "id",
+            editingContentId
+          );
+
+      if(result.error){
+        throw result.error;
+      }
+
+      showMessage(
+        "success",
+        "✅ Website Content Update ہو گیا۔"
+      );
+
+    }else{
+
+      const result =
+        await supabaseClient
+          .from("website_content")
+          .insert(contentData);
+
+      if(result.error){
+        throw result.error;
+      }
+
+      showMessage(
+        "success",
+        "✅ Website Content محفوظ ہو گیا۔"
+      );
+
+    }
+
+    resetContentForm();
+
+    await loadContent();
+
+  }catch(err){
+
+    console.error(err);
+
+    showMessage(
+      "error",
+      err.message ||
+      "Website Content save نہیں ہو سکا۔"
+    );
+
+  }finally{
+
+    saveBtn.disabled=false;
+
+    saveBtn.textContent =
+      editingContentId
+        ? "Website Content Update کریں"
+        : "Website Content محفوظ کریں";
+
+  }
+
+}
+
+
+/* =====================================================
+   LOAD WEBSITE CONTENT
+===================================================== */
+
+async function loadContent(){
+
+  const list =
+    document.getElementById(
+      "contentList"
+    );
+
+  if(!list){
+    return;
+  }
+
+  list.innerHTML =
+    "<p class='empty'>Website Content load ہو رہا ہے...</p>";
+
+  const result =
+    await supabaseClient
+      .from("website_content")
+      .select("*")
+      .order(
+        "sort_order",
+        {ascending:true}
+      )
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+  if(result.error){
+
+    list.innerHTML =
+      "<p class='empty'>Website Content load نہیں ہو سکا۔</p>";
+
+    console.error(
+      "Content Error:",
+      result.error
+    );
+
+    return;
+  }
+
+  const data =
+    result.data || [];
+
+  if(data.length === 0){
+
+    list.innerHTML =
+      "<p class='empty'>ابھی کوئی Website Content شامل نہیں کیا گیا۔</p>";
+
+    return;
+
+  }
+
+  list.innerHTML="";
+
+  data.forEach(function(item){
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "content-item" +
+      (
+        item.active
+          ? ""
+          : " inactive"
+      );
+
+    const image =
+      item.image
+        ? `
+          <img
+            class="content-image"
+            src="${escapeHTML(item.image)}"
+            alt=""
+          >
+        `
+        : `
+          <div class="content-image"></div>
+        `;
+
+    div.innerHTML = `
+
+      <div class="content-row">
+
+        ${image}
+
+        <div class="content-details">
+
+          <div class="badge">
+            ${escapeHTML(
+              item.content_type || "custom"
+            )}
+          </div>
+
+          <h3>
+            ${escapeHTML(
+              item.title || "Untitled"
+            )}
+          </h3>
+
+          ${
+            item.subtitle
+              ? `
+                <div class="meta">
+                  ${escapeHTML(item.subtitle)}
+                </div>
+              `
+              : ""
+          }
+
+          ${
+            item.price !== null &&
+            item.price !== undefined
+              ? `
+                <div class="price">
+                  PKR ${escapeHTML(item.price)}
+                </div>
+              `
+              : ""
+          }
+
+          <div class="meta">
+            Order:
+            ${escapeHTML(
+              item.sort_order ?? 0
+            )}
+          </div>
+
+          <div class="meta">
+            Status:
+            ${
+              item.active
+                ? "Active"
+                : "Hidden"
+            }
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="edit-btn"
+          onclick="editContent(${item.id})">
+
+          ✏️ Edit
+
+        </button>
+
+        <button
+          class="hide-btn"
+          onclick="toggleContent(
+            ${item.id},
+            ${item.active}
+          )">
+
+          ${
+            item.active
+              ? "👁️ Hide"
+              : "👁️ Show"
+          }
+
+        </button>
+
+        <button
+          class="delete-btn"
+          onclick="deleteContent(${item.id})">
+
+          🗑️ Delete
+
+        </button>
+
+      </div>
+
+    `;
+
+    list.appendChild(div);
+
+  });
+
+}
+
+
+/* =====================================================
+   EDIT CONTENT
+===================================================== */
+
+async function editContent(id){
+
+  const result =
+    await supabaseClient
+      .from("website_content")
+      .select("*")
+      .eq("id",id)
+      .single();
+
+  if(result.error){
+
+    showMessage(
+      "error",
+      result.error.message
+    );
+
+    return;
+  }
+
+  const data =
+    result.data;
+
+  editingContentId =
+    id;
+
+  document.getElementById(
+    "contentType"
+  ).value =
+    data.content_type || "banner";
+
+  document.getElementById(
+    "contentTitle"
+  ).value =
+    data.title || "";
+
+  document.getElementById(
+    "contentSubtitle
